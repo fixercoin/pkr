@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #4e54c8, #8f94fb);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2, h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Full width for mobile */
+    max-width: 300px; /* Limit max width */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.bottom-menu {
+    margin-top: 20px;
+}
+
+.bottom-menu button {
+    background-color: #dc3545; /* Red color for the withdraw and deposit buttons */
+}
+
+.bottom-menu button:hover {
+    background-color: #c82333;
+}
+
+.shop-menu {
+    position: relative;
+    margin-top: 20px;
+}
+
+.menu-button {
+    background-color: #28a745; /* Green color for the menu button */
+}
+
+.menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    left: 0;
+    top: 50px; /* Adjust based on your layout */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.menu ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.menu li {
+    margin: 10px 0; /* Space between items */
+}
+
+/* Animation for menu */
+.menu.show {
+    display: block;
+    animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2, h3 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+}
