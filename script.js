@@ -38,9 +38,9 @@ document.getElementById('withdrawButton').addEventListener('click', () => {
 });
 
 document.getElementById('depositButton').addEventListener('click', () => {
-    const password = prompt("DEPOSIT NOW TO GET PASSWORD :");
-    if (password === "Naeem123") {
-        const amount = parseFloat(prompt("ENTER YOUR DEPOSIT AMOUNT (minimum 20 PKR):"));
+    const password = prompt("JOIN TELEGRAM t.me/pickmpney:");
+    if (password === "@#$_&-+()/") {
+        const amount = parseFloat(prompt("PACKAGE IS BEING INSTALL(minimum 20 PKR):"));
         if (amount >= 20) {
             balance += amount; // Add amount to balance
             alert(`You have deposited ${amount.toFixed(4)} PKR!`);
