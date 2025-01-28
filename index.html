@@ -163,4 +163,507 @@ button:hover {
         padding: 12px 20px;
     }
     }
+
+ /* Import font family to use from Google Fonts */
+        @import url(
+'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+/* style.css */
+body {
+    font-family: 'arial', cursive; /* Changed font-family to 'Modak' */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(https://i.postimg.cc/xTfYcCcM/10300834.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;  /* Fixed background */
+    background-color: #f5f5f5;
+}
+
+.container {
+    text-align: center;
+    max-width: 90%;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+h1 {
+    color: blue;
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 5px black; /* Dark shadow for all h1 headings */
+    text-outline: 1px solid #000; /* Black outline for yellow text */
+}
+
+#kitty-coin {
+    width: 160px;
+    height: 160px;
+    background-image: url('https://i.postimg.cc/rpM6n1HD/6400476-removebg-preview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: float 8s ease-in-out infinite;
+    position: relative;
+}
+
+/* Animation for floating effect */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Animation for zoom effect */
+@keyframes zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+#kitty-coin.zoomed {
+    animation: zoom 0.5s forwards; /* Apply the zoom animation */
+}
+
+#energy-bar-container {
+    width: 100%;
+    max-width: 250px;
+    height: 30px;
+    margin: 10px auto;
+    border-radius: 15px;
+    background-color: #ddd; /* Колір фону */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Глибока тінь для 3D ефекту */
+}
+
+#energy-bar-background {
+    height: 100%;
+    width: 100%;
+    background: #aaa; /* Колір фону, що показує зменшену енергію */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Внутрішня тінь для контурного ефекту */
+}
+
+#energy-bar {
+    height: 100%;
+    width: 0%; /* Заповнюється в залежності від рівня енергії */
+    background: linear-gradient(90deg, #ffcc00, #ff9900); /* Градієнтний фон для частково заповненої енергії */
+    background-size: 200% 200%; /* Розмір градієнту для анімації */
+    animation: gradientShift 3s ease infinite; /* Анімація градієнту */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    transition: width 0.5s;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Внутрішня тінь для контурного ефекту */
+}
+
+/* Анімація градієнту */
+@keyframes gradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+#energy-label {
+    position: relative;
+    margin-top: 5px;
+}
+
+#energy-text {
+    font-size: 1em;
+    color: #fff;
+ /* Dark shadow for energy text */
+}
+
+p {
+    font-size: 1.2em;
+    color: #000;
+    padding: 10px;
+    margin: 10px 0;
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for paragraphs */
+    text-outline: 1px solid #fff; /* White outline for black text */
+}
+
+#coins-text {
+    color: #fff;
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for coins text */
+}
+
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.0); /* Semi-transparent background */
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-menu button {
+    background: linear-gradient(90deg, #ffcc00, #ff9900); /* Gradient background */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 50%; /* Fully rounded corners for circular buttons */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added transition for transform and shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    position: relative;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.bottom-menu button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    transform: scale(0.9);
+}
+
+.bottom-menu button i {
+    font-size: 1.5em; /* Adjust icon size */
+    margin-bottom: 0px; /* Space between icon and text */
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for icons */
+}
+
+.bottom-menu button span {
+    font-size: 0.8em;
+    text-align: center;
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for button text */
+    color: black;
+}
+
+.bottom-menu button:hover {
+    background: linear-gradient(90deg, #ff9900, #ffcc00);
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+.bottom-menu button:active {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-section {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-attachment: fixed; /* Fixed background for modal to avoid overlap */
+}
+
+.modal-content {
+    background-image: url('https://i.postimg.cc/xTfYcCcM/10300834.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: calc(100vh - 40px); /* Ensure content doesn't overflow */
+    border-radius: 15px;
+    overflow: auto; /* Make modal content scrollable */
+}
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 20px;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+.close:hover,
+.close:focus {
+    color: #ba55d3;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-section .modal-content button,
+.modal-section .modal-content a {
+    background: linear-gradient(90deg, #ffcc00, #ff9900);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 0;
+    font-size: 1em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    white-space: nowrap;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    text-shadow: 2px 2px 5px #000000;
+    text-outline: 1px solid #000;
+}
+
+.modal-section .modal-content button::before,
+.modal-section .modal-content a::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border-radius: 25px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.modal-section .modal-content button:hover,
+.modal-section .modal-content a:hover {
+    background: linear-gradient(90deg, #ff9900, #ffcc00);
+    transform: scale(1.07);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-section .modal-content button:active,
+.modal-section .modal-content a:active {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Roulette Styles */
+#roulette-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#roulette-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#roulette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url('https://i.postimg.cc/CKVYGz9J/42064909-8944306.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    box-sizing: border-box;
+}
+
+#roulette-info {
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+#spin-roulette-btn {
+    background: linear-gradient(90deg, #ffcc00, #ff9900);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    text-shadow: 2px 2px 5px #000000;
+    text-outline: 1px solid #000;
+}
+
+#spin-roulette-btn::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border-radius: 25px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+#spin-roulette-btn:hover {
+    background: linear-gradient(90deg, #ff9900, #ffcc00);
+    transform: scale(1.07);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+#spin-roulette-btn:active {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    font-family: 'arial', cursive; 
+    font-weight: normal;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+/* Define styles for text outline based on color */
+.blue-text { text-outline: 1px solid blue; }
+.blue-text { text-outline: 1px solid blue; }
+
+/* Style all elements that are not within the referral system */
+*:not(.referral-form input, 
+     .referral-form label,
+     .referral-link input,
+     .referral-link p,
+     .referral-reward p,
+     #referral-message) { 
+    color: #fff;
+}
+
+/* Make these specific labels white */
+.referral-link p:nth-child(1), 
+.referral-link p:nth-child(3), 
+.referral-reward p { 
+    color: #fff;
+}
+
+/* Remove text shadow from specific elements */
+.referral-link p:nth-child(1),
+#referral-code-display,
+.referral-link p:nth-child(3) input,
+.referral-link p:nth-child(3),
+#share-link {
+    text-shadow: none;
+}
+
+.referral-form label,
+.referral-form input {
+    text-shadow: none;
+}
+
+#referral-message { color: white; }
+
+.referral-form input,
+.referral-code-input,
+.referral-link input {
+    background-color: #f5f5f5;
+    border: 2px solid #ffcc00;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 1em;
+    color: #333;
+    text-shadow: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.referral-form input::placeholder,
+.referral-code-input::placeholder,
+.referral-link input::placeholder {
+    color: #999;
+}
+
+.invites-tab button { margin: 0 20px; }
+
+.mine-tab img { 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    width: 50%; 
+    height: auto;
+}
+
+.mine-tab {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    padding: 20px; 
+}
+
+.image-container {
+    width: 100%; 
+    position: relative; 
+    margin-bottom: 10px; 
+    overflow: hidden; 
+}
+
+.mine-image {
+    width: 100%; 
+    height: auto; 
+    border-radius: 30px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.button-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.mine-button {
+    background: linear-gradient(90deg, #ffcc00, #ff9900); 
+    color: #fff; 
+    border: none;
+    border-radius: 25px; 
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+    margin: 0; 
+    font-size: 1em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0
+
+    
 </style>
