@@ -1,5 +1,5 @@
 let balance = parseFloat(localStorage.getItem('balance')) || 0.0000; // Initialize balance from local storage
-let clickBonus = 5.30; // Default click bonus
+let clickBonus = 0.0001; // Default click bonus
 let isBonusActive = false; // Track if bonus is active
 let bonusDuration = 0; // Time left for bonus
 
@@ -8,22 +8,22 @@ const lastBonusDate = localStorage.getItem('lastBonusDate');
 const today = new Date().toISOString().split('T')[0];
 
 if (lastBonusDate !== today) {
-    balance += 500; // Add daily bonus
+    balance += 10; // Add daily bonus
     localStorage.setItem('lastBonusDate', today); // Update last bonus date
 }
 
 document.getElementById('balance').innerText = balance.toFixed(4); // Update displayed balance
 
 document.getElementById('mineButton').addEventListener('click', () => {
-    balance += 5.30; // Increment balance by 0.0001 PKR
+    balance += 0.0001; // Increment balance by 0.0001 PKR
     localStorage.setItem('balance', balance); // Save balance to local storage
     document.getElementById('balance').innerText = balance.toFixed(4); // Update displayed balance
 });
 
 document.getElementById('withdrawButton').addEventListener('click', () => {
-    const password = prompt("JOIN TELEGRAM t.me/pickmoney:");
+    const password = prompt("Enter password to withdraw:");
     if (password === "Naeem123") {
-        const amount = parseFloat(prompt("PLEASE WAIT ..."));
+        const amount = parseFloat(prompt("Enter amount to withdraw (minimum 20 PKR):"));
         if (amount >= 20 && amount <= balance) {
             balance -= amount; // Deduct amount from balance
             alert(`You have withdrawn ${amount.toFixed(4)} PKR!`);
@@ -38,9 +38,9 @@ document.getElementById('withdrawButton').addEventListener('click', () => {
 });
 
 document.getElementById('depositButton').addEventListener('click', () => {
-    const password = prompt("JOIN TELEGRAM t.me/pickmpney:");
-    if (password === "@#$_&-+()/") {
-        const amount = parseFloat(prompt("PACKAGE IS BEING INSTALL(minimum 20 PKR):"));
+    const password = prompt("Enter password to deposit:");
+    if (password === "Naeem123") {
+        const amount = parseFloat(prompt("Enter amount to deposit (minimum 20 PKR):"));
         if (amount >= 20) {
             balance += amount; // Add amount to balance
             alert(`You have deposited ${amount.toFixed(4)} PKR!`);
@@ -82,3 +82,12 @@ document.getElementById('buyPowerButton').addEventListener('click', () => {
         alert("Insufficient balance to buy power!");
     }
 });
+
+// Menu Toggle Logic
+const menuToggle = document.getElementById('menuToggle');
+const menu = document.getElementById('menu');
+
+menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show'); // Toggle the menu visibility
+});
+        
