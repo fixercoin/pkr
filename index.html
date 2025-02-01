@@ -37,26 +37,4 @@
     
 
   
-<script>
-import { ConnectWallet } from "@thirdweb-dev/react";
 
-export default function Home() {
-  return (
-    <ConnectWallet
-      theme={{
-        colors: {
-          modalBg: "#FFFFFF",
-          primaryText: "#FFF",
-          walletSelectorButtonHoverBg: "#EEEEEE",
-          separatorLine: "#FFFFFF",
-          borderColor: "#EEEEEE",
-          accentText: "#c0ffee",
-        },
-      }}
-      btnTitle="Connect Wallet"
-      modalSize="large"
-      auth
-    />
-  );
-}
-            </script>
