@@ -33,7 +33,18 @@ h1 {
     animation: fadeInDown 1s ease-out;
 
 }
-
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Full width for mobile */
+    max-width: 300px; /* Limit max width */
+    transition: background-color 0.3s, transform 0.2s;
+}
 #tap-coin {
 
     width: 200px;
