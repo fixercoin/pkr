@@ -33,7 +33,7 @@ h1 {
     animation: fadeInDown 1s ease-out;
 
 }
-button {
+button1 {
     padding: 15px 30px;
     font-size: 18px;
     background-color: transparent;
@@ -46,7 +46,7 @@ button {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-button {
+button2 {
     padding: 15px 30px;
     font-size: 18px;
     background-color: #007bff;
