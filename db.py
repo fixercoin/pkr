@@ -19,4 +19,7 @@ def add_user(uid):
     def add_balance(uid, amount):
     cur.execute(f'UPDATE Users SET balance = balance + {amount} WHERE uid = {uid}')
     con.commit()
-    
+    def get_balance(uid):
+    cur.execute(f'SELECT balance FROM Users WHERE uid = {uid}')
+    balance = cur.fetchone()[0]
+    return balance
