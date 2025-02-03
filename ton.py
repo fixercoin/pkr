@@ -93,5 +93,39 @@ while True:
         
         # at this moment, `tx` is some new transaction that we haven't processed yet
         ...
-      
+      while True:
+    ...
+    for tx in resp['result']:
+        ...
+        # we have processed this tx
+
+        # lt variable here contains LT of the last processed transaction
+        last_lt = lt
+        with open('last_lt.txt', 'w') as f:
+            f.write(str(last_lt))
+          while True:
+    ...
+
+    for tx in resp['result']:
+        ...
+        # at this moment, `tx` is some new transaction that we haven't processed yet
+
+        value = int(tx['in_msg']['value'])
+        if value > 0:
+            uid = tx['in_msg']['message']
+
+            if not uid.isdigit():
+                continue
+
+            uid = int(uid)
+
+            if not db.check_user(uid):
+                continue
+
+            db.add_balance(uid, value)
+
+            await bot.send_message(uid, 'Deposit confirmed!\n'
+                                    f'*+{value / 1e9:.2f} TON*',
+                                    parse_mode=ParseMode.MARKDOWN)
+          
 
