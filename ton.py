@@ -127,5 +127,16 @@ while True:
             await bot.send_message(uid, 'Deposit confirmed!\n'
                                     f'*+{value / 1e9:.2f} TON*',
                                     parse_mode=ParseMode.MARKDOWN)
+          while True:
+    ...
+    for tx in resp['result']:
+        ...
+        # we have processed this tx
+
+        # lt variable here contains LT of the last processed transaction
+        last_lt = lt
+        with open('last_lt.txt', 'w') as f:
+            f.write(str(last_lt))
+          
           
 
