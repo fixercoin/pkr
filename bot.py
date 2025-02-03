@@ -48,4 +48,24 @@ async def balance_handler(message: types.Message):
     # Format balance and send to user
     await message.answer(f'Your balance: *{user_balance:.2f} TON*',
                          parse_mode=ParseMode.MARKDOWN)
+  @dp.message_handler(commands='deposit')
+@dp.message_handler(Text(equals='deposit', ignore_case=True))
+async def deposit_handler(message: types.Message):
+    uid = message.from_user.id
+
+    # Keyboard with deposit URL
+    keyboard = InlineKeyboardMarkup()
+    button = InlineKeyboardButton('Deposit',
+                                  url=f'ton://transfer/{config.DEPOSIT_ADDRESS}&text={uid}')
+    keyboard.add(button)
+
+    # Send text that explains how to make a deposit into bot to user
+    await message.answer('It is very easy to top up your balance here.\n'
+                         'Simply send any amount of TON to this address:\n\n'
+                         f'`{config.DEPOSIT_ADDRESS}`\n\n'
+                         f'And include the following comment: `{uid}`\n\n'
+                         'You can also deposit by clicking the button below.',
+                         reply_markup=keyboard,
+                         parse_mode=ParseMode.MARKDOWN)
+  
   
