@@ -10,4 +10,13 @@ def add_user(uid):
     # new user always has balance = 0
     cur.execute(f'INSERT INTO Users VALUES ({uid}, 0)')
     con.commit()
-  
+  def check_user(uid):
+    cur.execute(f'SELECT * FROM Users WHERE uid = {uid}')
+    user = cur.fetchone()
+    if user:
+        return True
+    return False
+    def add_balance(uid, amount):
+    cur.execute(f'UPDATE Users SET balance = balance + {amount} WHERE uid = {uid}')
+    con.commit()
+    
