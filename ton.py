@@ -77,5 +77,21 @@ async def start():
         continue
     
     ...
+while True:
+    ...
 
+    # Iterating over transactions
+    for tx in resp['result']:
+        # LT is Logical Time and Hash is hash of our transaction
+        lt, hash = int(tx['transaction_id']['lt']), tx['transaction_id']['hash']
+
+        # If this transaction's logical time is lower than our last_lt,
+        # we already processed it, so skip it
+
+        if lt <= last_lt:
+            continue
+        
+        # at this moment, `tx` is some new transaction that we haven't processed yet
+        ...
+      
 
