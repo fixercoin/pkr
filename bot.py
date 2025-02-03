@@ -36,3 +36,16 @@ async def welcome_handler(message: types.Message):
                          'Use keyboard to test my functionality.',
                          reply_markup=keyboard,
                          parse_mode=ParseMode.MARKDOWN)
+  @dp.message_handler(commands='balance')
+@dp.message_handler(Text(equals='balance', ignore_case=True))
+async def balance_handler(message: types.Message):
+    uid = message.from_user.id
+
+    # Get user balance from database
+    # Also don't forget that 1 TON = 1e9 (billion) Nanoton
+    user_balance = db.get_balance(uid) / 1e9
+
+    # Format balance and send to user
+    await message.answer(f'Your balance: *{user_balance:.2f} TON*',
+                         parse_mode=ParseMode.MARKDOWN)
+  
