@@ -38,4 +38,15 @@
     },
     "out_msgs": []
 }
+import requests
+import asyncio
+
+# Aiogram
+from aiogram import Bot
+from aiogram.types import ParseMode
+
+# We also need config and database here
+import config
+import db
+
 
