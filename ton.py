@@ -48,5 +48,34 @@ from aiogram.types import ParseMode
 # We also need config and database here
 import config
 import db
+async def start():
+    try:
+        # Try to load last_lt from file
+        with open('last_lt.txt', 'r') as f:
+            last_lt = int(f.read())
+    except FileNotFoundError:
+        # If file not found, set last_lt to 0
+        last_lt = 0
+
+    # We need the Bot instance here to send deposit notifications to users
+    bot = Bot(token=config.BOT_TOKEN)
+
+    while True:
+        # Here we will call API every few seconds and fetch new transactions.
+        ...
+      while True:
+    # 2 Seconds delay between checks
+    await asyncio.sleep(2)
+
+    # API call to TON Center that returns last 100 transactions of our wallet
+    resp = requests.get(f'{config.API_BASE_URL}/api/v2/getTransactions?'
+                        f'address={config.DEPOSIT_ADDRESS}&limit=100&'
+                        f'archival=true&api_key={config.API_KEY}').json()
+
+    # If call was not successful, try again
+    if not resp['ok']:
+        continue
+    
+    ...
 
 
