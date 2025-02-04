@@ -1,44 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connect MetaMask</title>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wallet Connect</title>
+  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.1/dist/umd/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="mydiv">
+   
+      <label for="fromAddress"  class="Heading">Your Connected Wallet Address:</label>
+      <p id="address"></p>
+   
+  
+  <!-- <input type="text" class="address" name="fromAddress" id ="address"><br><br> -->
+  <span id="labelIndent">
+    <label for="toAddress" class="Heading">To Address:</label>
+    <input type="text" class="toAddress address" id="indent" name="toAddress"><br><br>
+  </span>
+ 
+  
+  <button onclick="connectWC()">Connect Wallet</button>
+  <button onclick="send()">Send Transaction</button>
+  <button onclick="disconnect()">Disconnect Wallet </button>
+</div>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <button class="button" id="connectButton">
-        <img src="./images/metamask.png" alt="metamask logo" /> Connect wallet
-
-        <span id="loading"
-          ><span>&bull;</span><span>&bull;</span><span>&bull;</span></span
-        >
-      </button>
-
-      <div id="walletID">Your wallet is not connected yet.</div>
-
-      <div id="mobileDeviceWarning">
-        If you are on a mobile phone, please use MetaMask application's browser
-        to connect.
-      </div>
-    </div>
-
-    <div class="alert" id="installAlert">
-      Please refresh your browser after installing the Metamask plugin
-
-      <button class="button" id="reloadButton">Reload page</button>
-    </div>
-
-    <script type="text/javascript" src="./main.js"></script>
-  </body>
-          </html>
+</body>
+</html>
