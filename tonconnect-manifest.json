@@ -1,8 +1,8 @@
 const tonConnectUI = new TonConnectUI({
-    manifestUrl: 'https://htmlpreview.github.io/?https://github.com/fixercoin/pkr/edit/main/tonconnect-manifest.json',
+    manifestUrl: 'https://htmlpreview.github.io/?https://github.com/fixercoin/pkr/blob/main/tonconnect-manifest.json',
     buttonRootId: 'ton-connect',
     uiOptions: {
-        twaReturnUrl: 'https://t.me/pickmoneybot'
+        twaReturnUrl: 'https://tinyurl.com/fixergame'
     }
 });
 
