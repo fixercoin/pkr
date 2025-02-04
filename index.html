@@ -5,4 +5,63 @@
 
   
 </button>
+  <script>
+export const ConnectPage = () => {
+    const { open } = useWeb3Modal();
+    const { address, isConnected, chainId } = useAccount();
+    const { disconnect } = useDisconnect();
+    const { switchChain } = useSwitchChain();
+    const [isReconnect, setIsReconnect] = useState<boolean>(false);
+
+    const [params] = useSearchParams();
+    const chatInformation = stringQueryParamsToObject(
+        params.toString()
+    ) as IChatInformation;
+
+    useEffect(() => {
+        if (
+            (window as any).Telegram?.WebApp &&
+            isConnected &&
+            address &&
+            isReconnect
+        ) {
+            if (chatInformation.device === "browser") {
+                (window as any).Telegram.WebApp.sendData(
+                    JSON.stringify({
+                        address,
+                        chainId,
+                        event: WebAppEvent.CONNECT,
+                    })
+                );
+            } else {
+                callConnectHook(
+                    chatInformation.chatId!,
+                    chatInformation.userId!,
+                    address
+                ).then(() => {
+                    window.close();
+                });
+            }
+        }
+    }, [
+        address,
+        chainId,
+        chatInformation.chatId,
+        chatInformation.device,
+        isConnected,
+        isReconnect,
+    ]);
+
+    const handleOpenConnect = () => {
+        if (address) {
+            disconnect();
+        } else {
+            setIsReconnect(true);
+        }
+        open();
+        callInitConnectHook();
+    };
+      }
+    
+  </script>
 </body>
