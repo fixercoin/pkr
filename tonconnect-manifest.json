@@ -1,0 +1,7 @@
+{
+    "url": "<https://github.com/fixercoin/pkr/new/main/tonconnect-manifest.js>",                        // required
+    "name": "<FIXERCOIN>",                      // required
+    "iconUrl": "<https://github.com/fixercoin/pkr/new/main>",               // required
+    "termsOfUseUrl": "<terms-of-use-url>",     // optional
+    "privacyPolicyUrl": "<privacy-policy-url>" // optional
+}
