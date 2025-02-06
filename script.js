@@ -1,93 +1,111 @@
-let balance = parseFloat(localStorage.getItem('balance')) || 0.0000; // Initialize balance from local storage
-let clickBonus = 0.0001; // Default click bonus
-let isBonusActive = false; // Track if bonus is active
-let bonusDuration = 0; // Time left for bonus
+const tl = gsap.timeline();
+const terminalElement = document.querySelector(".terminal");
 
-// Daily bonus logic
-const lastBonusDate = localStorage.getItem('lastBonusDate');
-const today = new Date().toISOString().split('T')[0];
+// Initial states
+gsap.set(".content", { visibility: "hidden", opacity: 0 });
+gsap.set(".content h1, .content p", { y: 30, opacity: 0 });
+gsap.set(".command-line", { opacity: 0, y: 20 });
 
-if (lastBonusDate !== today) {
-    balance += 10; // Add daily bonus
-    localStorage.setItem('lastBonusDate', today); // Update last bonus date
-}
+// Remove initial opacity setting for cursors
+// gsap.set(".cursor", { opacity: 0 }); // This line is no longer needed
 
-document.getElementById('balance').innerText = balance.toFixed(4); // Update displayed balance
+// Function to pad number with zeros
+const padNumber = (num) => num.toString().padStart(2, "0");
 
-document.getElementById('mineButton').addEventListener('click', () => {
-    balance += 0.0001; // Increment balance by 0.0001 PKR
-    localStorage.setItem('balance', balance); // Save balance to local storage
-    document.getElementById('balance').innerText = balance.toFixed(4); // Update displayed balance
-});
+// Function to update cursor visibility
+const updateCursor = (activeCommandId) => {
+  document.querySelectorAll(".cursor").forEach((cursor) => {
+    cursor.classList.remove("active-cursor");
+  });
+  const activeCursor = document.querySelector(`#${activeCommandId} .cursor`);
+  if (activeCursor) {
+    activeCursor.classList.add("active-cursor");
+  }
+};
 
-document.getElementById('withdrawButton').addEventListener('click', () => {
-    const password = prompt("Enter password to withdraw:");
-    if (password === "Naeem123") {
-        const amount = parseFloat(prompt("Enter amount to withdraw (minimum 20 PKR):"));
-        if (amount >= 20 && amount <= balance) {
-            balance -= amount; // Deduct amount from balance
-            alert(`You have withdrawn ${amount.toFixed(4)} PKR!`);
-            localStorage.setItem('balance', balance); // Save balance to local storage
-            document.getElementById('balance').innerText = balance.toFixed(4); // Update displayed balance
-        } else {
-            alert("Invalid amount or insufficient balance!");
-        }
-    } else {
-        alert("Incorrect password!");
+tl.to("#cmd1", {
+  opacity: 1,
+  y: 0,
+  duration: 0.5,
+  ease: "power2.out",
+  onComplete: () => updateCursor("cmd1")
+})
+  .to(".loading-progress", {
+    width: "100%",
+    duration: 5,
+    ease: "none",
+    onUpdate: function () {
+      const progress = Math.round(this.progress() * 100);
+      document.querySelector(".percentage").textContent = `${padNumber(
+        progress
+      )}%`;
+
+      // Update cursor based on progress
+      if (progress < 20) {
+        updateCursor("cmd1");
+      } else if (progress < 50) {
+        updateCursor("cmd2");
+      } else if (progress < 80) {
+        updateCursor("cmd3");
+      } else {
+        updateCursor("cmd4");
+      }
+
+      // Show lines at specific progress points
+      if (progress >= 20 && progress < 21) {
+        gsap.to("#cmd2", { opacity: 1, y: 0, duration: 0.5 });
+      }
+      if (progress >= 50 && progress < 51) {
+        gsap.to("#cmd3", { opacity: 1, y: 0, duration: 0.5 });
+      }
+      if (progress >= 80 && progress < 81) {
+        gsap.to("#cmd4", { opacity: 1, y: 0, duration: 0.5 });
+      }
     }
-});
+  })
+  .to(terminalElement, {
+    duration: 0.5,
+    opacity: 0,
+    scale: 0.95,
+    ease: "power2.inOut"
+  })
+  .set(".preloader", {
+    display: "none"
+  })
+  .set(".content", {
+    visibility: "visible"
+  })
+  .to(".content", {
+    opacity: 1,
+    duration: 0.5
+  })
+  .to(
+    ".content h1",
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out"
+    },
+    "-=0.3"
+  )
+  .to(
+    ".content p",
+    {
+      opacity: 0.8,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out"
+    },
+    "-=0.6"
+  );
 
-document.getElementById('depositButton').addEventListener('click', () => {
-    const password = prompt("Enter password to deposit:");
-    if (password === "Naeem123") {
-        const amount = parseFloat(prompt("Enter amount to deposit (minimum 20 PKR):"));
-        if (amount >= 20) {
-            balance += amount; // Add amount to balance
-            alert(`You have deposited ${amount.toFixed(4)} PKR!`);
-            localStorage.setItem('balance', balance); // Save balance to local storage
-            document.getElementById('balance').innerText = balance.toFixed(4); // Update displayed balance
-        } else {
-            alert("Invalid amount!");
-        }
-    } else {
-        alert("Incorrect password!");
-    }
+// Add subtle flicker to terminal
+gsap.to(".terminal-content", {
+  duration: 0.1,
+  opacity: 0.95,
+  repeat: -1,
+  yoyo: true,
+  ease: "none"
 });
-
-document.getElementById('buyPowerButton').addEventListener('click', () => {
-    if (balance >= 100) {
-        balance -= 100; // Deduct cost of power from balance
-        clickBonus += 0.01; // Increase click bonus
-        localStorage.setItem('balance', balance); // Save balance to local storage
-        document.getElementById('balance').innerText = balance.toFixed(4); // Update displayed balance
-        document.getElementById('bonus').innerText = clickBonus.toFixed(4); // Update bonus display
-        alert("You purchased power for 2 hours! Bonus active.");
-        
-        // Start the bonus timer for 2 hours
-        if (!isBonusActive) {
-            isBonusActive = true;
-            bonusDuration = 7200; // 2 hours in seconds
-            const interval = setInterval(() => {
-                if (bonusDuration <= 0) {
-                    clearInterval(interval);
-                    isBonusActive = false;
-                    clickBonus -= 0.01; // Reset click bonus
-                    document.getElementById('bonus').innerText = clickBonus.toFixed(4); // Update bonus display
-                    alert("Your bonus has expired!");
-                }
-                bonusDuration--;
-            }, 1000);
-        }
-    } else {
-        alert("Insufficient balance to buy power!");
-    }
-});
-
-// Menu Toggle Logic
-const menuToggle = document.getElementById('menuToggle');
-const menu = document.getElementById('menu');
-
-menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('show'); // Toggle the menu visibility
-});
-        
+      
