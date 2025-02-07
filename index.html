@@ -1,306 +1,165 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <link type="text/css" rel="stylesheet" href="pathTo/stylesheet.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script type="text/javascript" src="pathTo/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-<script>
- 
-  $(function() {
-    $( "p" ).text( "The DOM is now loaded and can be manipulated." );
-  });
- 
-    </script>
-</head>
-
-<body>
-    <div class="preloader">
-  <div class="terminal">
-    <div class="terminal-content">
-      <div class="commands-container">
-        <div class="command-line" id="cmd1">
-          <span class="prompt">$</span>
-          <span class="command">accessing_Gibson_mainframe</span>
-          <span class="cursor"></span>
-        </div>
-        <div class="command-line" id="cmd2">
-          <span class="prompt">$</span>
-          <span class="command">launching_daVinci_virus</span>
-          <span class="cursor"></span>
-        </div>
-        <div class="command-line" id="cmd3">
-          <span class="prompt">$</span>
-          <span class="command">decoding_rotating_ciphers</span>
-          <span class="cursor"></span>
-        </div>
-        <div class="command-line" id="cmd4">
-          <span class="prompt">$</span>
-          <span class="command">hacking_the_planet</span>
-          <span class="cursor"></span>
-        </div>
-      </div>
-      <div class="loading-container">
-        <div class="loading-bar">
-          <div class="loading-progress"></div>
-        </div>
-      </div>
-      <div class="percentage-wrap">
-        <div class="percentage">00%</div>
-      </div>
-    </div>
-  </div>
+<div class="wrapper">
+	<div class="header">
+		<ul class="menu">
+			<li>News</li>
+			<li>Features</li>
+			<li>How it works</li>
+			<li>Blog</li>
+		</ul>
+		<div class="content">
+			<h2>Combine your Spotify, Soundcloud. iTunes, Deezer and YouTube into one giant music library</h2>
+			<div class="buttons">
+				<a class="button apple" href="#">App Store</a>
+				<a class="button google" href="#">Google play</a>
+			</div>
+		</div>
+		<img class="logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/626071/line-logo.svg">
+		<img class="curve" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/626071/bottom-curve_copy.svg">
+		<img class="waves" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/626071/waves_copy.svg">
+	</div>
 </div>
-
-<div class="content">
-  <h1>Hack the Planet!</h1>
-  <p>"We are samurai, the keyboard cowboys."</p>
-</div>
-</body>
-
-</html>
-
-
-
-
-
-    
+<div class="background"></div>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+body
+	width 100%
+	height 100%
+	min-height 100vh
+	margin 0
+	font-family 'Work Sans', sans-serif
+	font-weight 400
 
-:root {
-  --color-background: rgb(60, 60, 60);
-  --color-foreground: rgb(90, 90, 90);
-  --color-accent: rgb(170, 170, 170);
-  --font-primary: "IBM Plex Mono", monospace;
-  --margin: 32px;
-  --gutter: 16px;
-}
+.background
+	width 100%
+	height 100%
+	min-height 100vh
+	position fixed
+	top 0
+	left 0
+	z-index -1
+	background rgb(167,65,255)
+	background -moz-linear-gradient(top, rgba(167,65,255,1) 0%, rgba(84,128,253,1) 100%)
+	background -webkit-linear-gradient(top, rgba(167,65,255,1) 0%,rgba(84,128,253,1) 100%)
+	background linear-gradient(to bottom, rgba(167,65,255,1) 0%,rgba(84,128,253,1) 100%)
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: var(--font-primary);
-  background: var(--color-background);
-  color: var(--color-accent);
-}
-
-.preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: var(--color-background);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.terminal {
-  width: min(600px, 90vw);
-  height: min(400px, 60vh);
-  background: var(--color-background);
-  border: 1px solid var(--color-foreground);
-  padding: var(--margin);
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba(90, 90, 90, 0.1);
-}
-
-.terminal::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(90, 90, 90, 0.05),
-    rgba(90, 90, 90, 0.05) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  pointer-events: none;
-}
-
-.terminal-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--gutter);
-}
-
-.commands-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--gutter);
-}
-
-.command-line {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--gutter) * 0.5);
-  font-size: 14px;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.prompt {
-  color: var(--color-accent);
-  opacity: 0.9;
-}
-
-.command {
-  color: var(--color-accent);
-  opacity: 0.9;
-}
-
-.cursor {
-  width: 8px;
-  height: 16px;
-  background: var(--color-accent);
-  display: inline-block;
-  margin-left: 4px;
-  opacity: 0;
-  vertical-align: middle;
-  /* Remove animation from default cursor */
-  animation: none;
-}
-
-.active-cursor {
-  opacity: 0.9;
-  animation: blink 1s infinite;
-}
-
-.loading-container {
-  margin-bottom: calc(var(--margin) * 2);
-  padding: var(--gutter);
-  background: rgba(90, 90, 90, 0.05);
-  border: 1px solid var(--color-foreground);
-  border-radius: 2px;
-}
-
-.loading-bar {
-  width: 100%;
-  height: 20px;
-  background: var(--color-background);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--color-foreground);
-}
-
-.loading-progress {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0%;
-  background: var(--color-foreground);
-  box-shadow: 0 0 15px var(--color-foreground);
-}
-
-.loading-progress::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(170, 170, 170, 0.1) 10px,
-    rgba(170, 170, 170, 0.1) 20px
-  );
-}
-
-.percentage-wrap {
-  position: absolute;
-  bottom: var(--margin);
-  right: var(--margin);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.percentage {
-  font-family: var(--font-primary);
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--color-accent);
-  position: relative;
-  letter-spacing: 2px;
-}
-
-.percentage::before {
-  content: "[";
-  margin-right: 5px;
-}
-
-.percentage::after {
-  content: "]";
-  margin-left: 5px;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 0.9;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-.content {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--color-background);
-  visibility: hidden;
-  opacity: 0;
-  color: var(--color-accent);
-  padding: var(--margin);
-  text-align: center;
-}
-
-.content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  transform: translateY(30px);
-}
-
-.content p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  transform: translateY(30px);
-  opacity: 0.8;
-  }
-</style>
-<script src="script.js"></script>
-
-        
-  </body>
-</html>
+.wrapper
+	width 80%
+	height 100%
+	min-height 800px
+	background #FFF
+	position absolute
+	left 50%
+	top 0
+	margin 60px 0
+	transform translate(-50%,0)
+	-webkit-transform translate(-50%,0)
+	-moz-transform translate(-50%,0)
+	-webkit-box-shadow 0px 0px 30px 5px rgba(0,0,0,0.15)
+	-moz-box-shadow 0px 0px 30px 5px rgba(0,0,0,0.15)
+	box-shadow 0px 0px 30px 5px rgba(0,0,0,0.15)
+	.header
+		width 100%
+		height 100%
+		position absolute
+		top 0
+		left 0
+		background rgb(129,162,255)
+		background -moz-linear-gradient(top, rgba(129,162,255,1) 0%, rgba(193,225,255,1) 100%)
+		background -webkit-linear-gradient(top, rgba(129,162,255,1) 0%,rgba(193,225,255,1) 100%)
+		background linear-gradient(to bottom, rgba(129,162,255,1) 0%,rgba(193,225,255,1) 100%)
+		overflow hidden
+		.logo
+			width 50px
+			height auto
+			position absolute
+			top 50px
+			left 100px
+		.menu
+			list-style none
+			margin 0
+			padding 0
+			line-height 33px
+			position absolute
+			top 50px
+			right 100px
+			text-align right
+			width auto
+			li
+				display inline-block
+				margin 0 10px
+				color #FFF
+		.content
+			position absolute
+			width 100%
+			height auto
+			max-width 800px
+			top 50%
+			left 50%
+			transform translate(-50%,-85%)
+			h2
+				color #FFF
+				margin 0
+				font-size 2.3em
+				line-height 1.2em
+				width 100%
+				text-align center
+			.buttons
+				width 100%
+				text-align center
+				margin 0
+				padding 0
+			.button
+				display inline-block
+				width 150px
+				height 50px
+				padding-left 20px
+				background #000
+				color #FFF
+				font-size 1.2em
+				text-decoration none
+				text-align center
+				line-height 50px
+				margin 40px 5px 0
+				-moz-border-radius 5px
+				-webkit-border-radius 5px
+				border-radius 5px
+				-webkit-box-shadow 0px 12px 20px -10px rgba(0,0,0,0.65)
+				-moz-box-shadow 0px 12px 20px -10px rgba(0,0,0,0.65)
+				box-shadow 0px 12px 20px -10px rgba(0,0,0,0.65)
+				transition box-shadow 0.5s
+				&:hover
+					-webkit-box-shadow 0px 0px 20px -10px rgba(0,0,0,0.65)
+					-moz-box-shadow 0px 0px 20px -10px rgba(0,0,0,0.65)
+					box-shadow 0px 0px 20px -10px rgba(0,0,0,0.65)
+					transition box-shadow 0.5s
+				&.apple
+					background-image url('http://vignette2.wikia.nocookie.net/respawnables/images/2/2f/Apple-logo-white-md.png/revision/latest?cb=20160224124036')
+					background-size 20px auto
+					background-repeat no-repeat
+					background-position 20px center
+				&.google
+					background-image url('http://vignette3.wikia.nocookie.net/starwars/images/e/ee/Google_Play_logo.png/revision/latest?cb=20141119230612')
+					background-size 20px auto
+					background-repeat no-repeat
+					background-position 20px center
+		.waves
+			width calc(100% + 10px)
+			height auto
+			position absolute
+			bottom -3px
+			left 50%
+			transform translate(-50%,0)
+			-webkit-transform translate(-50%,0)
+			-moz-transform translate(-50%,0)
+			z-index 0
+		.curve
+			display none
+			width calc(100% + 10px)
+			height auto
+			position absolute
+			bottom -1px
+			left 50%
+			transform translate(-50%,0)
+			-webkit-transform translate(-50%,0)
+			-moz-transform translate(-50%,0)
+			z-index 1
