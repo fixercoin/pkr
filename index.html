@@ -1,30 +1,66 @@
-<html>
-  
-  <div>
-    <img src="">
-  </div>
-  <div>
-    <button>FIXER COIN TARGET</button>
-  </div>
-  <div>
-    <ul>
-      <li>TELEGRAM MINING BOOT </li>
-      <li>FIXER COIN PRESALE</li>
-      <li>AIRDROP DISTRIBUTION</li>
-      <li>FIXER WALLET</li>
-    </ul>
-  </div>
-</html>
+<!doctype html>
+<html amp lang="en">
 
-<style>
-  .large-header {
-    position: relative;
-    width: 100%;
-    background: #333;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    z-index: 1;
-  }
-  
-</style>
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <title>My Story</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="canonical" href="amp-list-video-story.html">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    
+    <style amp-custom>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        amp-story-page {
+            background: white;
+        }
+
+        h1 {
+            font-size: 2.875em;
+            font-weight: normal;
+            line-height: 1.174;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <amp-story standalone>
+        <amp-story-page id="cover">
+            <amp-story-grid-layer template="vertical">
+                <h1>Hello World</h1>
+                <p>This is the cover page of this story.</p>
+            </amp-story-grid-layer>
+        </amp-story-page>
+
+        <amp-story-page id="page-1">
+            <amp-story-grid-layer template="vertical">
+                <h1>Hello Earth</h1>
+                <p>This is the earth page of this story.</p>
+            </amp-story-grid-layer>
+        </amp-story-page>
+        
+      
+          <amp-story-page id="page-2">
+            <amp-story-grid-layer template="fill">
+                <amp-list layout="fill" width="480" height="270" single-item items="."
+                    src="https://sgist.githubusercontent.com/svdoever/9de8228fbea47100cdac3ee636f04d3f/raw/4d2b98691858c2e780a489cb201ac0fe491b24c0/amp-list-video-story.json">
+                    <template type="amp-mustache" id="amp-template-id">
+                        <amp-video width="720" height="1280" src="{{url}}" layout="responsive" poster="https://dummyimage.com/720x1280/000/fff" autoPlay>
+                            <div fallback><p>Your browser doesn't support HTML5 video.</p></div>
+                        </amp-video>
+                    </template>
+                </amp-list>
+            </amp-story-grid-layer />
+        </amp-story-page>
+
+    </amp-story>
+</body>
+  </html>
