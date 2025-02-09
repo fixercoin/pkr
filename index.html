@@ -1,202 +1,157 @@
-<html>
-	<body>
-<div class="flex-wrapper">
-  <section class="container">
-    <img id="cloudOne" class="clouds" src="http://sl.uploads.im/t/qL9Cc.png" />
-    <img id="cloudTwo" class="clouds" src="http://sm.uploads.im/t/HweRd.png" />
-    <img id="cloudThree" class="clouds" src="http://sk.uploads.im/t/lQ1MG.png" />
-    <img id="cloudFour" class="clouds" src="http://sk.uploads.im/t/lQ1MG.png" />
-    <div class="card-content">
-      <h1>Space is the breath of art.</h1>
-      <p>In awe, I watched the waxing moon ride across the zenith of the heavens like an ambered chariot towards the ebony void of infinite space.</p>
-      <button><span class="button-text">Learn More</span> <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-    </div>
-    <div class="background-container"></div>
-  </section>
+<div class="snowflake-area">
+	<canvas id="snowball" width="200" height="200"></canvas>
 </div>
+<button onclick="createSnowflakes()">SPIN THE SNOWBALL</button>body {
+	<style>
+		display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 90vh;
+	background-color: hsl(210, 60%, 15%);
+}
 
+#snowball {
+	clip-path: circle(50%);
+	width: 200px;
+	height: 200px;
+}
 
+.snowflake-area {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	position: relative;
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.05) 60%,
+		rgba(255, 255, 255, 0.2) 80%
+	);
+}
 
-<style>
-	$primary-color: #3498db;
-body {
-  background-color: $primary-color;
+/* Highlights */
+.snowflake-area::before {
+	content: "";
+	filter: blur(1px);
+	position: absolute;
+	width: 50%;
+	height: 30%;
+	top: 2%;
+	left: 25%;
+	border-radius: 50%;
+	background-image: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.15),
+		rgba(255, 255, 255, 0)
+	);
 }
-.container {
-  width: 80%;
-  margin: 0 auto;
-}
-	* {
-	 box-sizing: border-box;
-}
- body {
-	 background: #f4f5f8;
-	 padding: 0 30px;
-	 overflow: hidden;
-}
- .flex-wrapper {
-	 display: flex;
-	 justify-content: center;
-	 align-items: center;
-	 width: 100%;
-	 height: 100vh;
-}
- .container {
-	 max-width: 800px;
-	 min-width: 320px;
-	 width: 100%;
-	 background: #7a90f6;
-	 background: linear-gradient(to right, #7a90f6, #7b6ff6);
-	 position: relative;
-	 height: 400px;
-	 border-radius: 10px;
-	 box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-}
- .background-container {
-	 overflow: hidden;
-	 width: 100%;
-	 height: 100%;
-	 border-radius: 10px;
-}
- .background-container:before {
-	 position: absolute;
-	 top: 0;
-	 left: 50%;
-	 z-index: 1;
-	 width: 2000px;
-	 height: 100%;
-	 background: url("https://www.digitalocean.com/assets/media/products/header-04dcc3be.svg");
-	 background-position: bottom;
-	 background-repeat: no-repeat;
-	 content: "";
-	 transform: translateX(-50%);
-}
- .card-content {
-	 z-index: 10;
-	 width: 80%;
-	 position: absolute;
-	 top: 50%;
-	 left: 50%;
-	 transform: translate(-50%, -65%);
-	 display: flex;
-	 flex-direction: column;
-	 justify-content: center;
-	 align-items: center;
-}
- .card-content h1 {
-	 color: white;
-	 font-size: 3rem;
-	 text-align: center;
-	 margin-bottom: 10px;
-	 font-family: Lato, sans-serif;
-	 font-weight: 500;
-	 text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-}
- .card-content p {
-	 color: white;
-	 line-height: 1.5;
-	 text-align: center;
-	 margin-bottom: 10px;
-	 font-family: Lato, sans-serif;
-	 font-weight: 500;
-	 text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-}
- button {
-	 background: #55b4fb;
-	 border-radius: 30px;
-	 border: 2px solid #55b4fb;
-	 height: 44px;
-	 width: 165px;
-	 color: white;
-	 position: relative;
-	 cursor: pointer;
-	 box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-	 transition: box-shadow 0.25s;
-}
- button:hover {
-	 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-	 background: #46adfb;
-}
- button i {
-	 background: #75c2fb;
-	 padding: 10px;
-	 border-radius: 50px;
-	 position: absolute;
-	 border: 1px solid white;
-	 right: 2px;
-	 top: 50%;
-	 transform: translate(0%, -50%);
-}
- button .button-text {
-	 position: absolute;
-	 top: 50%;
-	 transform: translate(0%, -50%);
-	 left: 25px;
-}
- .clouds {
-	 width: 225px;
-	 position: absolute;
-}
- #cloudOne {
-	 top: -100px;
-	 left: -90px;
-}
- #cloudTwo {
-	 right: -100px;
-	 bottom: -90px;
-	 z-index: 3;
-}
- #cloudThree {
-	 left: 150px;
-	 bottom: -150px;
-	 z-index: -1;
-}
- #cloudFour {
-	 right: 80px;
-	 top: -100px;
-	 z-index: -1;
-	 width: 100px;
-}
- 
-	</style>
 
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+/* Reflections */
+.snowflake-area::after {
+	content: "";
+	border-radius: 30%;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	z-index: -1;
+	bottom: -100px;
+	left: 0px;
+	transform: perspective(150px) rotatex(80deg);
+	filter: blur(20px);
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.3) 10%,
+		hsla(210, 60%, 30%, 0.8) 25%,
+		rgba(255, 255, 255, 0.8) 40%
+	);
+}
+
+button {
+	margin-top: 100px;
+	background-color: hsla(210, 60%, 100%, 0);
+	border: 1px solid hsla(210, 60%, 100%, 0.3);
+	color: hsla(210, 60%, 100%, 0.5);
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	font-size: 0.6em;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-radius: 5px;
+	transition: 1s;
+}
+
+button:hover {
+	border: 1px solid hsla(210, 60%, 100%, 0.6);
+		color: hsla(210, 60%, 100%, 0.8);
+  //Setup spin animation
+const spin = gsap.timeline({ paused: true });
+spin.from("#snowball", {
+	duration: 5,
+	rotate: 360,
+	transformOrigin: "50%,50%",
+	ease: "expo.out"
+});</style>
 <script>
-var bouncingCloud = anime({
-  targets: '#cloudOne',
-  translateY: '10',
-  duration: 2000,
-  loop: true,
-  direction: 'alternate',
-  easing: 'linear'
-})
+//Setup Canvas
+const canvas = document.getElementById("snowball");
+const ctx = canvas.getContext("2d");
+canvas.width = 200;
+canvas.height = 200;
+let snowflakes = [];
 
-var bouncingCloudTwo = anime({
-  targets: '#cloudTwo',
-  translateY: '-15',
-  duration: 2500,
-  loop: true,
-  direction: 'alternate',
-  easing: 'linear'
-})
+function Snowflake(x, y, radius, speed, wind, alpha) {
+	this.x = x;
+	this.y = y;
+	this.radius = radius;
+	this.speed = speed;
+	this.wind = wind;
+	this.update = function () {
+		this.y += this.speed;
+		this.x += this.wind;
+		if (this.y > canvas.height) {
+			this.y = 0;
+			this.x = Math.random() * canvas.width;
+		}
+	};
 
-var bouncingCloudThree = anime({
-  targets: '#cloudThree',
-  translateY: '-25',
-  duration: 3000,
-  loop: true,
-  direction: 'alternate',
-  easing: 'linear'
-})
-var bouncingCloudFour = anime({
-  targets: '#cloudFour',
-  translateY: '35',
-  duration: 5000,
-  loop: true,
-  direction: 'alternate',
-  easing: 'linear'
-})
-	
-</script>
-	</body>
-</html>
+	this.draw = function () {
+		ctx.beginPath();
+		ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+		ctx.fillStyle = "white";
+		ctx.globalAlpha = alpha;
+		ctx.fill();
+	};
+}
+
+function createSnowflakes() {
+	spin.restart(); //start spin amination
+	snowflakes = []; //Empty Array
+	let count = Math.floor(Math.random() * 301) + 100; //Decide how many snowflakes
+	for (let i = 0; i < count; i++) {
+		let x = Math.random() * canvas.width;
+		let y = Math.random() * canvas.height;
+		let radius = Math.random() * 3;
+		let speed = Math.random() * 0.1 + 1;
+		let wind = Math.random() * 2 - 1;
+		let alpha = Math.random() * 0.6 + 0.4;
+		snowflakes.push(new Snowflake(x, y, radius, speed, wind, alpha));
+	}
+}
+
+function animate() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	snowflakes.forEach((snowflake) => {
+		snowflake.update();
+		snowflake.draw();
+	});
+
+	requestAnimationFrame(animate);
+}
+
+createSnowflakes();
+animate();
+		
