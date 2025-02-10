@@ -1,167 +1,134 @@
-<div class="snowflake-area">
-	<canvas id="snowball" width="200" height="200"></canvas>
-</div>
-<button onclick="createSnowflakes()">FIXERCOIN PRESALE</button>
-
-
-
-
-<style>
-	
-			      
-body {
-	
-		display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	height: 90vh;
-	background-color: hsl(210, 60%, 15%);
-}
-
-#snowball {
-	clip-path: circle(50%);
-	width: 200px;
-	height: 200px;
-}
-
-.snowflake-area {
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	position: relative;
-	background: radial-gradient(
-		circle,
-		rgba(255, 255, 255, 0.05) 60%,
-		rgba(255, 255, 255, 0.2) 80%
-	);
-}
-
-/* Highlights */
-.snowflake-area::before {
-	content: "";
-	filter: blur(1px);
-	position: absolute;
-	width: 50%;
-	height: 30%;
-	top: 2%;
-	left: 25%;
-	border-radius: 50%;
-	background-image: linear-gradient(
-		to bottom,
-		rgba(255, 255, 255, 0.15),
-		rgba(255, 255, 255, 0)
-	);
-}
-
-/* Reflections */
-.snowflake-area::after {
-	content: "";
-	border-radius: 30%;
-	width: 200px;
-	height: 200px;
-	position: absolute;
-	z-index: -1;
-	bottom: -100px;
-	left: 0px;
-	transform: perspective(150px) rotatex(80deg);
-	filter: blur(20px);
-	background: radial-gradient(
-		circle,
-		rgba(255, 255, 255, 0.3) 10%,
-		hsla(210, 60%, 30%, 0.8) 25%,
-		rgba(255, 255, 255, 0.8) 40%
-	);
-}
-
-button {
-	margin-top: 100px;
-	background-color: hsla(210, 60%, 100%, 0);
-	border: 1px solid hsla(210, 60%, 100%, 0.3);
-	color: hsla(210, 60%, 100%, 0.5);
-	padding: 8px 16px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	cursor: pointer;
-	font-size: 3em;
-	text-transform: uppercase;
-	font-weight: bold;
-	border-radius: 5px;
-	transition: 1s;
-}
-
-button:hover {
-	border: 1px solid hsla(210, 60%, 100%, 0.6);
-		color: hsla(210, 60%, 100%, 0.8);
-  //Setup spin animation
-const spin = gsap.timeline({ paused: true });
-spin.from("#snowball", {
-	duration: 5,
-	rotate: 360,
-	transformOrigin: "50%,50%",
-	ease: "expo.out"
-});</style>
 <script>
-	
-//Setup Canvas
-const canvas = document.getElementById("snowball");
-const ctx = canvas.getContext("2d");
-canvas.width = 200;
-canvas.height = 200;
-let snowflakes = [];
+	'use strict';
 
-function Snowflake(x, y, radius, speed, wind, alpha) {
-	this.x = x;
-	this.y = y;
-	this.radius = radius;
-	this.speed = speed;
-	this.wind = wind;
-	this.update = function () {
-		this.y += this.speed;
-		this.x += this.wind;
-		if (this.y > canvas.height) {
-			this.y = 0;
-			this.x = Math.random() * canvas.width;
-		}
-	};
+//Opening or closing side bar
 
-	this.draw = function () {
-		ctx.beginPath();
-		ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-		ctx.fillStyle = "white";
-		ctx.globalAlpha = alpha;
-		ctx.fill();
-	};
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+const sidebar = document.querySelector("[data-sidebar]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+sidebarBtn.addEventListener("click", function() {elementToggleFunc(sidebar); })
+
+//Activating Modal-testimonial
+
+const testimonialsItem = document.querySelectorAll('[data-testimonials-item]');
+const modalContainer = document.querySelector('[data-modal-container]');
+const modalCloseBtn = document.querySelector('[data-modal-close-btn]');
+const overlay = document.querySelector('[data-overlay]');
+
+const modalImg = document.querySelector('[data-modal-img]');
+const modalTitle = document.querySelector('[data-modal-title]');
+const modalText = document.querySelector('[data-modal-text]');
+
+const testimonialsModalFunc = function () {
+    modalContainer.classList.toggle('active');
+    overlay.classList.toggle('active');
 }
 
-function createSnowflakes() {
-	spin.restart(); //start spin amination
-	snowflakes = []; //Empty Array
-	let count = Math.floor(Math.random() * 301) + 100; //Decide how many snowflakes
-	for (let i = 0; i < count; i++) {
-		let x = Math.random() * canvas.width;
-		let y = Math.random() * canvas.height;
-		let radius = Math.random() * 3;
-		let speed = Math.random() * 0.1 + 1;
-		let wind = Math.random() * 2 - 1;
-		let alpha = Math.random() * 0.6 + 0.4;
-		snowflakes.push(new Snowflake(x, y, radius, speed, wind, alpha));
-	}
+for (let i = 0; i < testimonialsItem.length; i++) {
+    testimonialsItem[i].addEventListener('click', function () {
+        modalImg.src = this.querySelector('[data-testimonials-avatar]').src;
+        modalImg.alt = this.querySelector('[data-testimonials-avatar]').alt;
+        modalTitle.innerHTML = this.querySelector('[data-testimonials-title]').innerHTML;
+        modalText.innerHTML = this.querySelector('[data-testimonials-text]').innerHTML;
+
+        testimonialsModalFunc();
+    })
 }
 
-function animate() {
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	snowflakes.forEach((snowflake) => {
-		snowflake.update();
-		snowflake.draw();
-	});
+//Activating close button in modal-testimonial
 
-	requestAnimationFrame(animate);
+modalCloseBtn.addEventListener('click', testimonialsModalFunc);
+overlay.addEventListener('click', testimonialsModalFunc);
+
+//Activating Filter Select and filtering options
+
+const select = document.querySelector('[data-select]');
+const selectItems = document.querySelectorAll('[data-select-item]');
+const selectValue = document.querySelector('[data-select-value]');
+const filterBtn = document.querySelectorAll('[data-filter-btn]');
+
+select.addEventListener('click', function () {elementToggleFunc(this); });
+
+for(let i = 0; i < selectItems.length; i++) {
+    selectItems[i].addEventListener('click', function() {
+
+        let selectedValue = this.innerText.toLowerCase();
+        selectValue.innerText = this.innerText;
+        elementToggleFunc(select);
+        filterFunc(selectedValue);
+
+    });
 }
 
-createSnowflakes();
-animate();
-		
+const filterItems = document.querySelectorAll('[data-filter-item]');
+
+const filterFunc = function (selectedValue) {
+    for(let i = 0; i < filterItems.length; i++) {
+        if(selectedValue == "all") {
+            filterItems[i].classList.add('active');
+        } else if (selectedValue == filterItems[i].dataset.category) {
+            filterItems[i].classList.add('active');
+        } else {
+            filterItems[i].classList.remove('active');
+        }
+    }
+}
+
+//Enabling filter button for larger screens 
+
+let lastClickedBtn = filterBtn[0];
+
+for (let i = 0; i < filterBtn.length; i++) {
+    
+    filterBtn[i].addEventListener('click', function() {
+
+        let selectedValue = this.innerText.toLowerCase();
+        selectValue.innerText = this.innerText;
+        filterFunc(selectedValue);
+
+        lastClickedBtn.classList.remove('active');
+        this.classList.add('active');
+        lastClickedBtn = this;
+
+    })
+}
+
+// Enabling Contact Form
+
+const form = document.querySelector('[data-form]');
+const formInputs = document.querySelectorAll('[data-form-input]');
+const formBtn = document.querySelector('[data-form-btn]');
+
+for(let i = 0; i < formInputs.length; i++) {
+    formInputs[i].addEventListener('input', function () {
+        if(form.checkValidity()) {
+            formBtn.removeAttribute('disabled');
+        } else { 
+            formBtn.setAttribute('disabled', '');
+        }
+    })
+}
+
+// Enabling Page Navigation 
+
+const navigationLinks = document.querySelectorAll('[data-nav-link]');
+const pages = document.querySelectorAll('[data-page]');
+
+for(let i = 0; i < navigationLinks.length; i++) {
+    navigationLinks[i].addEventListener('click', function() {
+        
+        for(let i = 0; i < pages.length; i++) {
+            if(this.innerHTML.toLowerCase() == pages[i].dataset.page) {
+                pages[i].classList.add('active');
+                navigationLinks[i].classList.add('active');
+                window.scrollTo(0, 0);
+            } else {
+                pages[i].classList.remove('active');
+                navigationLinks[i]. classList.remove('active');
+            }
+        }
+    });
+}
 </script>
