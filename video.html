@@ -1,0 +1,107 @@
+    <main>
+        <h1>A trilogia Front-End WEB</h1>
+        <p>Estas são as três linguagens que qualquer um que queira desenvolver para web precisa dominar.</p>
+        <section>
+            <h2>HTML</h2>
+            <p>HTML (HyperText Markup Language) é o bloco de construção básico da web e é utilizado para definir a estrutura e o significado do conteúdo. </p>
+            <iframe 
+                id="video1"
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/ijv8-PeLZ_o?si=UxwZlDW8W8HP15yi" 
+                title="HTML para inicintes - com projeto" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </section>
+        <section>
+            <h2>CSS</h2>
+            <p>CSS (Cascading Style Sheet) é usado para estilizar elementos escritos em uma linguagem de marcação como HTML.</p>
+            <iframe 
+                id="video2"
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/EPxhu55aqy4?si=NUKTH2dnDr1A-FtJ" 
+                title="CSS para iniciantes - com teoria e projeto" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </section>
+        <section>
+            <h2>JavaScript</h2>
+            <p>JavaScript (JS) é uma linguagem de programação usada para criar páginas web e aplicativos interativos. É uma das principais tecnologias da web, juntamente com o HTML e o CSS.</p>
+            <iframe 
+                id="video3"
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/1loPW0w2v7w?si=wkONXR9VY5l5OJ7L" 
+                title="JavaScript para iniciantes - com projeto prático" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </section>
+    </main>
+    <div id="footer"></div>  <script>document.getElementById("footer").innerHTML=`<span>&copy; ${new Date().getFullYear()} Paulo Rodrigues - rodsp90@gmail.com</span>`</script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: Verdana, sans-serif;
+    border: none;
+}
+
+body {
+    background: #151515;
+    width: 100vw;
+}
+
+main {
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px 4px;
+    background: #793f34;
+}
+
+section {
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 5px 0;
+}
+
+iframe, h2, p {
+    width: 80%;
+    margin: 5px 10%;
+}
+
+#footer {
+    margin: 20px 0 5px 0;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+@media only screen and (max-width: 800px) {
+    main, iframe, h2, p {
+        width: 100%;     
+    }
+    iframe, h2, p {
+        margin: 5px 0;
+        padding: 2px;
+    }
+}   
+@media only screen and (max-width: 500px) {
+    iframe {
+        height: 200px;
+    }
+}
+
+</style>
