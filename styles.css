@@ -1,1 +1,180 @@
+body {
 
+    background-image: url('me.jpg');
+
+    background-size: cover;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+
+}
+
+.container {
+
+    background: rgba(255, 255, 255, 0.8);
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    display: inline-block;
+
+    margin-top: 50px;
+
+    animation: fadeIn 2s ease-in;
+
+}
+
+h1 {
+
+    font-size: 3em;
+
+    animation: fadeInDown 1s ease-out;
+
+}
+
+
+#tap-coin {
+
+    width: 200px;
+
+    cursor: pointer;
+
+    margin: 20px 0;
+
+    animation: pulse 1s infinite;
+
+}
+
+#tap-coin:active {
+
+    animation: tap 0.1s;
+
+
+
+}
+
+#connect-wallet, #join-telegram {
+
+    display: block;
+
+    margin: 10px auto;
+
+    padding: 10px 20px;
+
+    font-size: 1em;
+
+    animation: fadeInUp 1s ease-out;
+
+}
+
+#wallet-address {
+
+    display: block;
+
+    margin: 10px auto;
+
+    padding: 10px;
+
+    font-size: 1em;
+
+    width: 80%;
+
+    animation: fadeInUp 1s ease-out;
+
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes fadeInDown {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+@keyframes fadeInUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+@keyframes pulse {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.1);
+
+    }
+
+}
+
+@keyframes tap {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(0.9);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+      }
