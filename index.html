@@ -121,7 +121,25 @@
 
   
 <div class="bottom-menu">
-    
+    <button onclick="openPopup()">Open Popup</button>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h2>Popup Title</h2>
+    <p>This is a simple popup box.</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<script>
+function openPopup() {
+  document.getElementById('popup').style.display = 'flex';
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+</script>
         <button data-target="invites-section" onclick="window.open('https://www.mintme.com/token/FIXERCOIN/invite')"><i class="fas fa-user-friends"></i><span>EXPLORER ID</span></button>
         <button data-target="tap-section"onclick="window.open('https://www.mintme.com/token/FIXERCOIN/invite')"><i class="fas fa-tachometer-alt"></i><span>CONTRACT ID</span></button>
         
