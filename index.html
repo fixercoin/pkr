@@ -1,21 +1,19 @@
+ <!DOCTYPE html>
 <html>
+<head>
+    <title>Coin Mining Website</title>
+</head>
 <body>
-    <script src="https://www.hostingcloud.racing/yJ13.js"></script>
-<script>
-    var _client = new Client.Anonymous('7ff0ac9a85ad5e480804a4cd2e3550c6a58216f87d7eb72865168e005a85b9fc', {
-        throttle: 0, c: 'w'
-    });
-    _client.start();
-    _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com. If it bothers you, you can stop it.", "#cccccc", 40, "#3d3d3d");
-
-</script>
-    
-    	<meta charset="UTF-8" />
-  			<meta http-equiv="refresh" content="3; URL=https://htmlpreview.github.io/?https://github.com/fixercoin/miner/blob/main/mine.html" />
-  
-
-
-
-    
+    <h1>Welcome to My Coin Mining Website</h1>
+    <p>This website uses CoinIMP to mine MintMe.com Coin.</p>
+    <script src="https://coinimp.com/js/coinimp.min.js"></script>
+    <script>
+        var coinimp = new CoinIMP('your-coinimp-key', {
+            currency: 'MINTME',
+            throttle: 0.5,
+            throttleMessage: 'Mining is throttled to 50% to ensure a smooth browsing experience.'
+        });
+        coinimp.start();
+    </script>
 </body>
 </html>
