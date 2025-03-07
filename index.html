@@ -1,603 +1,1325 @@
+ 
+  
+  
+  <!DOCTYPE html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+</head>
+
 <body>
 
-  <main id="main">
-
-
-    <!-- Console List -->
-    <div class="content-wrap">
-      <ul>
-        <li class="flex-console icon-date-console">
-          <div class="flex-console-items-1 flex-inner-console-1">
-            <img src="">
-            <p class="date">⚙️</p>
-          </div>
-          <div class="flex-inner-console-2">
-            <h3 class="flex-item-inner-1">FIXER NETWORK</h3>
-            <p class="flex-item-inner-2">SUCCESSFUL DEPLOYMENT AT MINTME AND SOLANA NETWORK | FIXER IS MOVING TO LAUNCH SWAP SYSTEM FOR MINTME BLOCKCHAIN TOKEN <br>
-		    STAY TUNED FOR NEXT UPDATE</p>
-          </div>
-        </li>
-        <li class="flex-console icon-date-console">
-          <div class="flex-console-items-1 flex-inner-console-1" >
-            <img src="">
-            <p class="date"> ⚙️</p>
-          </div>
-          <div class="flex-inner-console-2">
-            <h3 class="flex-item-inner-1">FIXERCOIN/MINTME</h3>
-            <p class="flex-item-inner-2">STATUS | DEPLOYED | MINTME BLOCKCHAIN<br>CONTRACT ADDRESS : 0x091da08c5bf888252ed1ab3e44246cbf72d63307
-		  <br>  MAXIMUM/FINALE SUPPLY | 10000000
-		    <br>
-		    CIRCULATING SUPPLY | 1000000<br>
-		    MARKET CAP | 10000000 USD
-		    <br><a href="https://mintme.com/token/fixercoin">TRADE NOW</a></p>
-          </div>
-        </li>
-        <li class="flex-console icon-date-console">
-          <div class="flex-console-items-1 flex-inner-console-1">
-            <img src="">
-            <p class="date">⚙️</p>
-          </div>
-          <div class="flex-inner-console-2">
-            <h3 class="flex-item-inner-1">FIXERCOIN/SOLANA</h3>
-            <p classs="flex-item-inner-1">STATUS | DEPLOYED | SOLANA BLOCKCHAIN<br>
-		    CONTRACT ADDRESS : H4qKn8FMFha8jJuj8xMryMqRhH3h7GjLuxw7TVixpump
-		    <br>MAXIMUM/FINAL SUPPLY | 1000000000
-		    <br>CIRCULATING SUPPLY | 100000000
-		    <br>MARKET CAP | 1000000000 USD 
-		    <br><a href="https://pump.fun/coin/H4qKn8FMFha8jJuj8xMryMqRhH3h7GjLuxw7TVixpump">TRADE NOW</a></p>
-          </div>
-        </li>
-        <li class="flex-console icon-date-console">
-          <div class="flex-console-items-1 flex-inner-console-1">
-            <img src="">
-            <p class="date">⚙️</p>
-          </div>
-          <div class="flex-inner-console-2">
-            <h3 class="flex-item-inner-1">MINING | AIRDROP</h3>
-            <p class="flex-item-inner-2">
-		    GET SITE KEY TO RUN HASH RATE
-		   <br> <a href"">REGISTER NOW </a>
-		    <br>
-		    ADD YOUR ANY WEB OR FACEBOOK LIKE | COPY PRIVATE KEY AND MOVE TO FIXER MINER
-	    <br>
-		    <a href="">START MINING</a> 
-		    <br>
-		    GET FREE AIRDROP THROUGH LIKE SHARE COMMENT AT FIXERCOIN PAGE AT MINTME BLOCKCHAIN YOU CAN
-		    SELL EVEN 1 FIXERCOIN CLAIMED BY AIRDROP | IF YOU WANT TO BUY CHEAP FIXERCOIN YOU CAN JOIN BOUNTY CAMPING FOR BUYING LOW RATE FIXERCOIN WITH EXTRA EARN SCHEME 
-		    <br><a href="https://mintme.com/token/FIXERCOIN/invite">JOIN NOW</a>
-	    <br>
-	    </p>
-          </div>
-        </li>
-        <li class="flex-console icon-date-console">
-          <div class="flex-console-items-1 flex-inner-console-1">
-            <img src="">
-            <p class="date">⚙️</p>
-          </div>
-          <div class="flex-inner-console-2">
-            <h3 class="flex-item-inner-1">SWAP MINTME TOKEN</h3>
-            <p class="flex-item-inner-2">SWAPPING | MINTME BLOCKCHAIN |  REGISTERED TOKEN
-		    <br>PROCEDURE : ADD MINTME NETWORK AT YOUR METAMASK | DEPOSIT SOME MINTNE COIN FOR TRANSACTION FEES | GO TO FIXERSWAP WEB <br>
-		    
-		    SELECT FIRST TOKEN AND THEN SELECT SECOND TOKEN THEN PRESS SWAP NOW BUTTON | SWAP PROSS IS COMPLETEED
-		    <br><a href="">SWAP NOW</a></p>
-          </div>
-        </li>
-      
-        
-        
-        
-      </ul>
-    </div>
-
-
-
-
-  </main>
-
+  <script src=""></script>
 </body>
 
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Kitty Clicker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="hello-text"></h1>
+        <p id="coins-text">KittyCoins: 0</p>
+        <div id="kitty-coin" onclick="handleKittyClick()"></div>
+        <div id="energy-bar-container">
+            <div id="energy-bar"></div>
+            <div id="energy-label">
+                <span id="energy-text">Energy: 100%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Menu -->
+    <div class="bottom-menu">
+        <button data-target="mine-section"><i class="fas fa-gem"></i><span>Mine</span></button>
+        <button data-target="invites-section"><i class="fas fa-user-friends"></i><span>Invites</span></button>
+        <button data-target="tap-section"><i class="fas fa-tachometer-alt"></i><span>Boost</span></button>
+        <button data-target="earn-section"><i class="fas fa-dollar-sign"></i><span>Earn</span></button>
+        <button data-target="games-section"><i class="fas fa-gamepad"></i><span>Games</span></button>
+    </div>
+
+    <!-- Modals -->
+    <div id="mine-section" class="modal-section">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Mine</h2>
+            <p></p>
+            <div id="mines-wrapper">
+                <div class="mine-item">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/originals/32/0f/f3/320ff31aebd303b7df0a2d1d78b135a5.jpg" alt="Metal Mine" class="mine-image">
+                    </div>
+                    <div class="button-container">
+                        <button class="mine-button" id="metal-mine">Metal Mine (Level 1) - 1000 </button>
+                    </div>
+                    <p>A basic mine that produces metal. It's a good starting point for your mining operations.</p>
+                </div>
+                <div class="mine-item">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/originals/56/98/b1/5698b1ae526873962acf3c1c0edb456f.jpg" alt="Aluminum Mine" class="mine-image">
+                    </div>
+                    <div class="button-container">
+                        <button class="mine-button" id="aluminum-mine">Aluminum Mine (Level 1) - 1500 </button>
+                    </div>
+                    <p>Produce Aluminum, a lightweight yet strong metal. A valuable addition to your mining empire.</p>
+                </div>
+                <div class="mine-item">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/originals/1c/eb/84/1ceb84ae5f433afb6d9eaba72dba3dce.png" alt="Copper Mine" class="mine-image">
+                    </div>
+                    <div class="button-container">
+                        <button class="mine-button" id="copper-mine">Copper Mine (Level 1) - 2000 </button>
+                    </div>
+                    <p>A source of Copper, a highly conductive metal. Expand your mining expertise.</p>
+                </div>
+                <div class="mine-item">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/originals/42/f0/bb/42f0bbd6041b9a6dc85fd47b02cbd786.jpg" alt="Bronze Mine" class="mine-image">
+                    </div>
+                    <div class="button-container">
+                        <button class="mine-button" id="bronze-mine">Bronze Mine (Level 1) - 2500 </button>
+                    </div>
+                    <p>Produce Bronze, a versatile alloy known for its strength and durability. A valuable asset.</p>
+                </div>
+                <div class="mine-item">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/originals/5c/38/ef/5c38ef5941c6958a925df8912ba495f0.png" alt="Silver Mine" class="mine-image">
+                    </div>
+                    <div class="button-container">
+                        <button class="mine-button" id="silver-mine">Silver Mine (Level 1) - 3000 </button>
+                    </div>
+                    <p>A source of Silver, a precious metal known for its beauty and conductivity. A lucrative venture.</p>
+                </div>
+                <div class="mine-item">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/originals/7a/48/bd/7a48bdf733b75751daf93ca7b920e325.jpg" alt="Diamond Mine" class="mine-image">
+                    </div>
+                    <div class="button-container">
+                        <button class="mine-button" id="diamond-mine">Diamond Mine (Level 1) - 3500 </button>
+                    </div>
+                    <p>Produce Diamonds, the most valuable gemstone. A surefire way to increase your wealth.</p>
+                </div>
+                <div class="mine-item">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/originals/7d/66/e9/7d66e9a66b21889dcecc7f1834105db7.jpg" alt="Platinum Mine" class="mine-image">
+                    </div>
+                    <div class="button-container">
+                        <button class="mine-button" id="platinum-mine">Platinum Mine (Level 1) - 4000 </button>
+                    </div>
+                    <p>Produce Platinum, a rare and valuable metal. A prized addition to your collection.</p>
+                </div>
+                <div class="mine-item">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/originals/a7/7d/30/a77d30080b6d094bf05a7046d8073aba.jpg" alt="Diamond Mine" class="mine-image">
+                    </div>
+                    <div class="button-container">
+                        <button class="mine-button" id="diamond-mine">Diamond Mine (Level 1) - 4500 </button>
+                    </div>
+                    <p>Unleash the power of Diamonds, the most valuable gemstone. A symbol of wealth and prestige!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="invites-section" class="modal-section">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Invites</h2>
+            <p>Invite friends and earn rewards!</p>
+            <div class="referral-form">
+                <label for="referral-code">Enter your referral code:</label>
+                <input type="text" id="referral-code" placeholder="Referral code">
+                <button id="apply-referral" class="common-button">Apply</button>
+                <p id="referral-message"></p>
+            </div>
+            <div class="referral-link">
+                <p>Your referral code:</p>
+                <input type="text" id="referral-code-display" readonly>
+                <button id="copy-code" class="common-button">Copy Code</button>
+            </div>
+            <div class="referral-link">
+                <p>Share this link:</p>
+                <input type="text" id="share-link" value="t.me/HelloKittyClickerBot" readonly>
+                <button id="copy-link" class="common-button">Copy Link</button>
+            </div>
+            <div class="referral-reward">
+                <p>Reward for inviting a friend: 1000</p>
+            </div>
+        </div>
+    </div>
+   <br> <div id="tap-section" class="modal-section">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Boost</h2>
+            <div id="improvements">
+                <div class="booster-label">Free daily boosters</div>
+                <button id="full-tank" data-cost="200" class="common-button"><i class="fas fa-gas-pump"></i> Full Tank</button>
+                <div class="booster-label">Boosters</div>
+                <button id="multitap" data-cost="150" class="common-button"><i class="fas fa-tasks"></i> Multitap</button>
+                <button id="energy-limit" data-cost="300" class="common-button"><i class="fas fa-battery-full"></i> Energy Limit</button>
+                <button id="recharging-speed" data-cost="250" class="common-button"><i class="fas fa-clock"></i> Recharging Speed</button>
+                <p id="improvement-message"></p>
+            </div>
+        </div>
+    </div>
+    <div id="earn-section" class="modal-section">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Earn</h2>
+            <p>Earn functionality here.</p>
+
+            <!-- Subscription Section -->
+            <div id="telegram-subscribe-section">
+                <h3>Subscribe to our Telegram channel for a reward!</h3>
+                <a href="https://t.me/fixercoin" target="_blank" id="verify-subscription" class="common-button">Join Telegram Channel</a> 
+                <p id="subscription-message"></p>
+            </div>
+        </div>
+    </div>
+    <div id="games-section" class="modal-section">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Games</h2>
+            <div id="roulette-wrapper">
+                <div id="roulette-container">
+                    <div id="roulette"></div>
+                </div>
+                <div id="roulette-info">Winnings: 0</div>
+                <button id="spin-roulette-btn" class="common-button">Spin the Wheel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // JavaScript for handling modal visibility
+        const buttons = document.querySelectorAll('.bottom-menu button');
+        const modals = document.querySelectorAll('.modal-section');
+        const closeButtons = document.querySelectorAll('.close');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const targetModal = document.getElementById(targetId);
+                if (targetModal) {
+                    targetModal.style.display = 'flex'; // Show the modal
+                }
+            });
+        });
+
+        closeButtons.forEach(closeButton => {
+            closeButton.addEventListener('click', () => {
+                const modalSection = closeButton.closest('.modal-section');
+                modalSection.style.display = 'none'; // Hide the modal
+            });
+        });
+
+        // Close modals when clicking outside of them
+        window.addEventListener('click', (event) => {
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none'; // Hide the modal
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved game data from Local Storage
+            let coins = localStorage.getItem('coins') ? parseInt(localStorage.getItem('coins')) : 0;
+            let energy = localStorage.getItem('energy') ? parseInt(localStorage.getItem('energy')) : 1000; // Increased maximum energy
+            const maxEnergy = 1000; // Increased maximum energy
+            const energyLossPerClick = 10; // Energy loss per click
+            const coinsText = document.getElementById('coins-text');
+            const energyBar = document.getElementById('energy-bar');
+            const energyText = document.getElementById('energy-text');
+            const kittyCoin = document.getElementById('kitty-coin');
+            const fullTankCost = 200;
+            const multitapCost = 150;
+            const energyLimitCost = 300;
+            const rechargingSpeedCost = 250;
+            let referralCode = localStorage.getItem('referralCode') || generateReferralCode();
+            let referralReward = 1000; // Updated reward amount for the new user
+
+            // Update UI with saved data
+            function updateUI() {
+                coinsText.textContent = `KittyCoins: ${coins}`;
+                energyBar.style.width = `${(energy / maxEnergy) * 100}%`;
+                energyText.textContent = `Energy: ${Math.round((energy / maxEnergy) * 100)}%`;
+                localStorage.setItem('coins', coins);
+                localStorage.setItem('energy', energy);
+                localStorage.setItem('referralCode', referralCode);
+                adjustInputWidth();
+            }
+
+            // Handle kitty click event
+            function handleKittyClick() {
+                if (energy > 0) {
+                    coins += 1; // Increase coins by 1 per click
+                    energy -= energyLossPerClick; // Decrease energy
+                    if (energy < 0) energy = 0;
+                    updateUI();
+                } else {
+                    alert('Not enough energy!');
+                }
+            }
+
+            // Handle button clicks in the Boost section
+            document.getElementById('full-tank').addEventListener('click', function() {
+                if (coins >= fullTankCost) {
+                    energy = maxEnergy;
+                    coins -= fullTankCost;
+                    updateUI();
+                    document.getElementById('improvement-message').textContent = `Full Tank activated!`;
+                } else {
+                    document.getElementById('improvement-message').textContent = `Not enough coins to activate Full Tank!`;
+                }
+            });
+
+            document.getElementById('multitap').addEventListener('click', function() {
+                if (coins >= multitapCost) {
+                    coins -= multitapCost;
+                    updateUI();
+                    document.getElementById('improvement-message').textContent = `Multitap activated!`;
+                } else {
+                    document.getElementById('improvement-message').textContent = `Not enough coins to activate Multitap!`;
+                }
+            });
+
+            document.getElementById('energy-limit').addEventListener('click', function() {
+                if (coins >= energyLimitCost) {
+                    maxEnergy += 100; // Increase energy limit
+                    coins -= energyLimitCost;
+                    updateUI();
+                    document.getElementById('improvement-message').textContent = `Energy limit increased!`;
+                } else {
+                    document.getElementById('improvement-message').textContent = `Not enough coins to increase Energy Limit!`;
+                }
+            });
+
+            document.getElementById('recharging-speed').addEventListener('click', function() {
+                if (coins >= rechargingSpeedCost) {
+                    coins -= rechargingSpeedCost;
+                    updateUI();
+                    document.getElementById('improvement-message').textContent = `Recharging speed improved!`;
+                } else {
+                    document.getElementById('improvement-message').textContent = `Not enough coins to improve Recharging Speed!`;
+                }
+            });
+
+            // Referral code handling
+            const referralCodeInput = document.getElementById('referral-code');
+            const applyReferralButton = document.getElementById('apply-referral');
+            const referralMessage = document.getElementById('referral-message');
+            const referralCodeDisplay = document.getElementById('referral-code-display');
+            const copyCodeButton = document.getElementById('copy-code');
+            const shareLink = document.getElementById('share-link');
+            const copyLinkButton = document.getElementById('copy-link');
+
+            function generateReferralCode() {
+                return Math.random().toString(36).substring(2, 8).toUpperCase();
+            }
+
+            function updateReferralCode() {
+                referralCodeDisplay.value = referralCode;
+                adjustInputWidth(); // Adjust input width to match referral code length
+            }
+
+            function adjustInputWidth() {
+                // Set input width to a fixed value
+                referralCodeDisplay.style.width = '200px';
+                referralCodeInput.style.width = '200px'; // Set the same width for input
+            }
+
+            function applyReferralCode(code) {
+                // Add logic to reward coins for valid referral codes
+                if (code === referralCode) {
+                    coins += referralReward; // Reward amount for the new user
+                    localStorage.setItem('coins', coins);
+                    updateUI();
+                    return true;
+                }
+                return false;
+            }
+
+            applyReferralButton.addEventListener('click', function() {
+                const enteredCode = referralCodeInput.value.trim().toUpperCase();
+                if (enteredCode) {
+                    const success = applyReferralCode(enteredCode);
+                    if (success) {
+                        referralMessage.textContent = `Referral code applied! You have earned ${referralReward} KittyCoins.`;
+                    } else {
+                        referralMessage.textContent = `Invalid referral code. Please try again.`;
+                    }
+                } else {
+                    referralMessage.textContent = `Please enter a valid referral code.`;
+                }
+            });
+
+            copyCodeButton.addEventListener('click', function() {
+                referralCodeDisplay.select();
+                document.execCommand('copy');
+                // Remove the alert message
+                // alert('Referral code copied to clipboard!');
+            });
+
+            copyLinkButton.addEventListener('click', function() {
+                shareLink.select();
+                document.execCommand('copy');
+                // Optionally remove the alert message
+                // alert('Referral link copied to clipboard!');
+            });
+
+            // Initial update of the UI
+            updateReferralCode();
+            updateUI();
+        });
+    </script>
+  </body>
+  
+</html>
+
+<script>
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Ініціалізація облікових даних
+    const accountId = localStorage.getItem('accountId') || generateUniqueId();
+    localStorage.setItem('accountId', accountId);
+
+    let coins = parseInt(localStorage.getItem(`${accountId}_coins`)) || 0;
+    let energy = parseInt(localStorage.getItem(`${accountId}_energy`)) || 1000;
+    let energyLimit = parseInt(localStorage.getItem(`${accountId}_energyLimit`)) || 1000;
+    const energyCostPerClick = 5;
+
+    const coinsText = document.getElementById('coins-text');
+    const energyBar = document.getElementById('energy-bar');
+    const energyText = document.getElementById('energy-text');
+    const kittyCoin = document.getElementById('kitty-coin');
+    const fullTankButton = document.getElementById('full-tank');
+
+    let clickUpgradeMultiplier = parseInt(localStorage.getItem(`${accountId}_clickUpgradeMultiplier`)) || 1;
+    let multitapClicks = parseInt(localStorage.getItem(`${accountId}_multitapClicks`)) || 1;
+    let rechargingSpeed = parseInt(localStorage.getItem(`${accountId}_rechargingSpeed`)) || 5;
+    let fullTankUsageCount = parseInt(localStorage.getItem(`${accountId}_fullTankUsageCount`)) || 0;
+    const maxFullTankUsage = 6;
+    let lastFullTankResetTime = new Date(localStorage.getItem(`${accountId}_lastFullTankResetTime`)) || new Date();
+
+    let multitapCost = parseInt(localStorage.getItem(`${accountId}_multitapCost`)) || 150;
+    let energyLimitCost = parseInt(localStorage.getItem(`${accountId}_energyLimitCost`)) || 300;
+    let rechargingSpeedCost = parseInt(localStorage.getItem(`${accountId}_rechargingSpeedCost`)) || 250;
+
+    let multitapLevel = parseInt(localStorage.getItem(`${accountId}_multitapLevel`)) || 0;
+    let energyLimitLevel = parseInt(localStorage.getItem(`${accountId}_energyLimitLevel`)) || 0;
+    let rechargingSpeedLevel = parseInt(localStorage.getItem(`${accountId}_rechargingSpeedLevel`)) || 0;
+
+    // Реферальний механізм
+    let referralCode = localStorage.getItem(`${accountId}_referralCode`) || generateReferralCode();
+    const referralReward = 1000; // Сума винагороди за реферальний код
+    const referralCodeInput = document.getElementById('referral-code');
+    const applyReferralButton = document.getElementById('apply-referral');
+    const referralMessage = document.getElementById('referral-message');
+    const referralCodeDisplay = document.getElementById('referral-code-display');
+    const copyCodeButton = document.getElementById('copy-code');
+
+    // Перевіряє, чи код вже був використаний цим користувачем
+    let usedReferralCodes = JSON.parse(localStorage.getItem(`${accountId}_usedReferralCodes`)) || [];
+    // Зберігає коди, використані іншими акаунтами
+    let usedReferralCodesByOthers = JSON.parse(localStorage.getItem(`${accountId}_usedReferralCodesByOthers`)) || [];
+
+    function generateReferralCode() {
+        return Math.random().toString(36).substring(2, 8).toUpperCase();
+    }
+
+    function applyReferralCode(code) {
+        // Перевірка на використання власного реферального коду
+        if (code === referralCode) {
+            referralMessage.textContent = `You cannot use your own referral code.`;
+            return false;
+        }
+
+        // Перевірка, чи код вже був використаний цим акаунтом або іншими акаунтами
+        if (usedReferralCodes.includes(code) || usedReferralCodesByOthers.includes(code)) {
+            referralMessage.textContent = `Referral code already used.`;
+            return false;
+        }
+
+        // Перевірка на дійсність коду
+        if (code.length === 6) {
+            coins += referralReward;
+            localStorage.setItem(`${accountId}_coins`, coins);
+            usedReferralCodes.push(code);
+            localStorage.setItem(`${accountId}_usedReferralCodes`, JSON.stringify(usedReferralCodes));
+            usedReferralCodesByOthers.push(code);
+            localStorage.setItem(`${accountId}_usedReferralCodesByOthers`, JSON.stringify(usedReferralCodesByOthers));
+            return true;
+        }
+        return false;
+    }
+
+    function updateReferralCode() {
+        referralCodeDisplay.value = referralCode;
+    }
+
+    applyReferralButton.addEventListener('click', function() {
+        const enteredCode = referralCodeInput.value.trim().toUpperCase();
+        if (enteredCode) {
+            const success = applyReferralCode(enteredCode);
+            if (success) {
+                referralMessage.textContent = `Referral code applied! You have earned ${referralReward} KittyCoins.`;
+                updateUI(); // Оновити UI після застосування коду
+            } else {
+                referralMessage.textContent = `Invalid referral code. Please try again.`;
+            }
+        } else {
+            referralMessage.textContent = `Please enter a valid referral code.`;
+        }
+    });
+
+    copyCodeButton.addEventListener('click', function() {
+        referralCodeDisplay.select();
+        document.execCommand('copy');
+    });
+
+    function updateEnergyLimit() {
+        energyLimit = 1000 + (energyLimitLevel * 200);
+    }
+
+    function updateRechargingSpeed() {
+        rechargingSpeed = rechargingSpeedLevel + 1;
+    }
+
+    function updateMultitapClicks() {
+        multitapClicks = multitapLevel + 1;
+    }
+
+    function handleKittyClick() {
+        if (energy >= energyCostPerClick) {
+            energy -= energyCostPerClick;
+            const totalClicks = multitapClicks;
+            for (let i = 0; i < totalClicks; i++) {
+                coins += clickUpgradeMultiplier;
+            }
+            energy = Math.min(energy, energyLimit);
+            updateUI();
+            kittyCoin.classList.add('zoomed');
+            setTimeout(() => kittyCoin.classList.remove('zoomed'), 300);
+            saveGameData();
+        } else {
+            showMessage("Not enough energy!");
+        }
+    }
+
+    function showMessage(message) {
+        document.getElementById('improvement-message').textContent = message;
+    }
+
+    function useFullTank() {
+        const now = new Date();
+        if (now - lastFullTankResetTime >= 24 * 60 * 60 * 1000) {
+            fullTankUsageCount = 0;
+            lastFullTankResetTime = now;
+        }
+
+        if (fullTankUsageCount < maxFullTankUsage) {
+            energy = energyLimit;
+            fullTankUsageCount++;
+            updateUI();
+            saveGameData();
+        } else {
+            showMessage("You have reached the daily limit of Full Tanks!");
+        }
+    }
+
+    function updateFullTankButton() {
+        const now = new Date();
+        const timeElapsed = now - lastFullTankResetTime;
+        const timeRemaining = Math.max(0, 24 * 60 * 60 * 1000 - timeElapsed);
+        const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        const timerText = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        if (energy >= energyLimit) {
+            if (fullTankUsageCount >= maxFullTankUsage) {
+                fullTankButton.textContent = `Full Tank (Cooldown: ${timerText})`;
+                fullTankButton.disabled = true;
+            } else {
+                fullTankButton.textContent = `Full Tank (Uses left: ${maxFullTankUsage - fullTankUsageCount})`;
+                fullTankButton.disabled = false;
+            }
+        } else {
+            fullTankButton.textContent = `Full Tank (Cooldown: ${timerText})`;
+            fullTankButton.disabled = true;
+        }
+    }
+
+    function checkFullTankCooldown() {
+        const now = new Date();
+        const timeElapsed = now - lastFullTankResetTime;
+        if (timeElapsed >= 24 * 60 * 60 * 1000) {
+            // Відновлення лічильника використання та часу
+            fullTankUsageCount = 0;
+            lastFullTankResetTime = now;
+            saveGameData();
+        }
+        updateFullTankButton();
+    }
+
+    function updateUI() {
+        updateEnergyLimit();
+        updateRechargingSpeed();
+        updateMultitapClicks();
+        checkFullTankCooldown();
+
+        coinsText.textContent = `KittyCoins: ${coins}`;
+        energyBar.style.width = `${(energy / energyLimit) * 100}%`;
+        energyText.textContent = `Energy: ${energy}/${energyLimit}`;
+
+        document.getElementById('multitap').innerText = `Multitap (Level ${multitapLevel}) - ${multitapCost} Coins`;
+        document.getElementById('energy-limit').innerText = `Energy Limit (Level ${energyLimitLevel}) - ${energyLimitCost} Coins`;
+        document.getElementById('recharging-speed').innerText = `Recharging Speed (Level ${rechargingSpeedLevel}) - ${rechargingSpeedCost} Coins`;
+        document.getElementById('improvement-message').textContent = '';
+
+        updateReferralCode(); // Оновлює реферальний код в UI
+    }
+
+    function regenerateEnergy() {
+        if (energy < energyLimit) {
+            energy += rechargingSpeed;
+            energy = Math.min(energy, energyLimit);
+            updateUI();
+        }
+    }
+
+    function saveGameData() {
+        localStorage.setItem(`${accountId}_coins`, coins);
+        localStorage.setItem(`${accountId}_energy`, energy);
+        localStorage.setItem(`${accountId}_clickUpgradeMultiplier`, clickUpgradeMultiplier);
+        localStorage.setItem(`${accountId}_multitapClicks`, multitapClicks);
+        localStorage.setItem(`${accountId}_energyLimit`, energyLimit);
+        localStorage.setItem(`${accountId}_rechargingSpeed`, rechargingSpeed);
+        localStorage.setItem(`${accountId}_multitapCost`, multitapCost);
+        localStorage.setItem(`${accountId}_energyLimitCost`, energyLimitCost);
+        localStorage.setItem(`${accountId}_rechargingSpeedCost`, rechargingSpeedCost);
+        localStorage.setItem(`${accountId}_multitapLevel`, multitapLevel);
+        localStorage.setItem(`${accountId}_energyLimitLevel`, energyLimitLevel);
+        localStorage.setItem(`${accountId}_rechargingSpeedLevel`, rechargingSpeedLevel);
+        localStorage.setItem(`${accountId}_fullTankUsageCount`, fullTankUsageCount);
+        localStorage.setItem(`${accountId}_lastFullTankResetTime`, lastFullTankResetTime.toISOString());
+        localStorage.setItem(`${accountId}_referralCode`, referralCode); // Зберігає реферальний код
+        localStorage.setItem(`${accountId}_usedReferralCodes`, JSON.stringify(usedReferralCodes)); // Зберігає використані реферальні коди
+        localStorage.setItem(`${accountId}_usedReferralCodesByOthers`, JSON.stringify(usedReferralCodesByOthers)); // Зберігає використані реферальні коди іншими акаунтами
+    }
+
+    function buyImprovement(improvement) {
+        let cost;
+        switch (improvement) {
+            case 'multitap':
+                cost = multitapCost;
+                if (coins >= cost) {
+                    coins -= cost;
+                    multitapLevel++;
+                    updateMultitapClicks();
+                    multitapCost *= 2;
+                } else {
+                    showMessage("Not enough coins!");
+                }
+                break;
+            case 'energy-limit':
+                cost = energyLimitCost;
+                if (coins >= cost) {
+                    coins -= cost;
+                    energyLimitLevel++;
+                    energyLimitCost *= 2;
+                } else {
+                    showMessage("Not enough coins!");
+                }
+                break;
+            case 'recharging-speed':
+                cost = rechargingSpeedCost;
+                if (coins >= cost) {
+                    coins -= cost;
+                    rechargingSpeedLevel++;
+                    rechargingSpeedCost *= 2;
+                    updateRechargingSpeed();
+                } else {
+                    showMessage("Not enough coins!");
+                }
+                break;
+        }
+        updateUI();
+        saveGameData();
+    }
+
+    function generateUniqueId() {
+        return 'account_' + Math.random().toString(36).substr(2, 9);
+    }
+
+    document.getElementById('multitap').addEventListener('click', () => buyImprovement('multitap'));
+    document.getElementById('energy-limit').addEventListener('click', () => buyImprovement('energy-limit'));
+    document.getElementById('recharging-speed').addEventListener('click', () => buyImprovement('recharging-speed'));
+    fullTankButton.addEventListener('click', useFullTank);
+    kittyCoin.addEventListener('click', handleKittyClick);
+
+    // Додаємо таймери для перевірки відновлення енергії та кнопки "Full Tank"
+    setInterval(regenerateEnergy, 1000);
+    setInterval(updateFullTankButton, 1000);
+
+    // Обробка перемикання між модальними вікнами
+    document.querySelectorAll('.bottom-menu button').forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            document.querySelectorAll('.modal-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            const targetSection = document.getElementById(targetId);
+            targetSection.style.display = 'flex';
+
+            if (targetId === 'games-section') {
+                const roulette = document.getElementById('roulette');
+                roulette.style.backgroundImage = "url('https://i.pinimg.com/originals/35/49/10/3549102105cc0dba52619c09038b3288.png')";
+            }
+        });
+    });
+
+    // Обробка закриття модальних вікон
+    document.querySelectorAll('.close').forEach(closeButton => {
+        closeButton.addEventListener('click', function() {
+            this.closest('.modal-section').style.display = 'none';
+        });
+    });
+
+    // Обробка обертання рулетки
+    const roulette = document.getElementById('roulette');
+    const spinButton = document.getElementById('spin-roulette-btn');
+    const rouletteResult = document.getElementById('roulette-info');
+    let spinning = false;
+
+    spinButton.addEventListener('click', function() {
+        if (spinning) return;
+
+        spinning = true;
+        const randomDegree = Math.floor(Math.random() * 360);
+        const spinDuration = 4000;
+        const spinStartTime = Date.now();
+
+        roulette.style.transition = `transform ${spinDuration}ms ease-out`;
+        roulette.style.transform = `rotate(${randomDegree + 360 * 5}deg)`;
+
+        const updateInterval = 100;
+        const interval = setInterval(() => {
+            if (Date.now() - spinStartTime >= spinDuration) {
+                clearInterval(interval);
+                const winningNumber = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+                const color = getColorForNumber(winningNumber);
+                rouletteResult.textContent = `Winnings: ${winningNumber}`;
+                rouletteResult.style.color = color;
+                coins += winningNumber;
+                saveGameData();
+                updateUI();
+                spinning = false;
+            } else {
+                const randomNumber = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+                const color = getColorForNumber(randomNumber);
+                rouletteResult.textContent = `Winnings: ${randomNumber}`;
+                rouletteResult.style.color = color;
+            }
+        }, updateInterval);
+    });
+
+    function getColorForNumber(number) {
+        const colors = ['#FF5733', '#33FF57', '#5733FF', '#F0F033', '#FF33F0', '#33F0FF', '#FF8C33', '#33FF8C', '#8C33FF', '#F0F0F0', '#FF3333', '#33FF33'];
+        return colors[number % colors.length] || '#000000';
+    }
+
+    updateUI();
+
+    // Анімація тексту з кольорами
+    const textElement = document.getElementById('hello-text');
+    const text = textElement.textContent;
+    const colors = ['#FF6347', '#FF4500', '#FFD700', '#32CD32', '#1E90FF', '#8A2BE2', '#FF1493', '#FF69B4'];
+    let coloredText = '';
+    let animationCount = 0;
+
+    // Функція для генерації випадкових кольорів для анімації
+    function getRandomColors() {
+        return [
+            colors[Math.floor(Math.random() * colors.length)],
+            colors[Math.floor(Math.random() * colors.length)],
+            colors[Math.floor(Math.random() * colors.length)],
+            colors[Math.floor(Math.random() * colors.length)]
+        ];
+    }
+
+    // Функція для створення ключових кадрів для анімації
+    function createAnimation(color1, color2, color3, color4) {
+        return `
+            @keyframes colorChange${animationCount} {
+                0% {
+                    color: ${color1};
+                }
+                25% {
+                    color: ${color2};
+                }
+                50% {
+                    color: ${color3};
+                }
+                75% {
+                    color: ${color4};
+                }
+                100% {
+                    color: ${color1};
+                }
+            }
+        `;
+    }
+
+    // Додаємо стилі для анімацій у <style> елемент
+    const style = document.createElement('style');
+    document.head.appendChild(style);
+
+    // Розбиваємо текст на окремі букви і додаємо стилі
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] !== ' ') {
+            const [color1, color2, color3, color4] = getRandomColors();
+            style.sheet.insertRule(createAnimation(color1, color2, color3, color4), style.sheet.cssRules.length);
+
+            coloredText += `<span class="letter" style="animation: colorChange${animationCount} 5s linear infinite;">${text[i]}</span>`;
+            animationCount++;
+        } else {
+            coloredText += ' ';
+        }
+    }
+
+    textElement.innerHTML = coloredText;
+});
+
+const codeEditor = document.querySelector('replit-code-editor');
+if (codeEditor) {
+  const textarea = codeEditor.shadowRoot.querySelector('textarea');
+  if (textarea) {
+    textarea.value += codeToInsert;
+  } else {
+    console.error("Textarea not found in code editor.");
+  }
+} else {
+  console.error("Code editor not found.");
+}
+
+  
+
+
+
+</script>
+
+
+
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300;700&family=Hind+Madurai:wght@400;700&family=Montserrat:ital,wght@0,700;1,700&display=swap');
 
+/* style.css */
 body {
-  width: 100%;
-  margin: 0 auto;
-  background: #fff;
-  font-family: 'arial', arial;
-  font-size: 10px;
-  line-height: 10px;
-  color: #414548;
-}
-h1, h2, h3, p.date {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-}
-h1, h2, p.date {
-   color: #27292b;
-}
-h1 {
-  font-size: 5em;
-  line-height:1em;
-  margin: 0;
-  color: #ff4554;
-}
-h2 {
-  font-size: 3.215em;
-  line-height: 1em;
-  margin: 0;
-  color: #ff4554;
-}
-h3 {
-  color: #ff4554;
-  font-size: 2.5em;
-  margin: 0;
-  margin-bottom:15px;
-}
-h4 {
-  margin: 20px 0 0;
-  color: #fff;
-  font-size: 1.4em;
-}
-p {
-  line-height: 1.5em;
-  font-size: 1.8em;
-  margin: 0;
-  text-align: justify;
-}
-.main {
-  margin: 0 auto;
-  width: 100%;
-}
-a:hover {
-  color: #414548;
-}
-a:visited {
-  color: #00C3E3;
-}
-
-/* Landing Container **********************************************/
-.hero-img, #img-div{
-  width: 50vw;
-  height: 100vh;
-  background: pink;
-  background: linear-gradient(90deg, rgba(0,195,227,0.05) 0%, rgba(255,255,255,0.1) 50%), url("https://lh3.googleusercontent.com/sCecbOZD7-W-9qWJE5PQRRNGYam2l42_FOYXUVTUmjtn-XV_gxRMJ4twRS5omp9QFN2-VKdI1ZGwqZzLNGOcA2afQA1vs3YIJEyqgP3SZu-Ja69vsbtgNEb1eckD5tb5F4pMp3zrPg=w2400");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position:bottom;
-}
-.landing-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
-  align-items: flex-start;
-  width:100vw;
-  height: 100vh;
-}
-.hero-text{
-  order: 0;
-  flex: 1 0 auto;
-  align-self: center;
-}
-.flex-item.hero-img {
-  order: 1;
-  flex: 1 0 auto;
-  align-self: stretch;
-}
-.nintendo-heading {
-  text-transform: uppercase;
-}
-.nintendo-heading-2 {
-  color: #27292B;
-}
-p.hero-intro {
-  font-family: 'Hind Madurai', sans-serif;
-  max-width: 600px;
-  margin-top: 15px;
-  font-size: 2em;
-  line-height: 1.4em;
-}
-.hero-text-inner {
-  width: 50vw;
-  transform: translate(25%, 0);
-}
-/* Info Container **********************************************/
-.info-img {
-  width: 50vw;
-  height: 100vh;
-  background: linear-gradient(90deg ,rgba(255,255,255,0.1) 0%, rgba(255,69,84,0.05) 50%), url("https://lh3.googleusercontent.com/EYdaLRxaP04dE-3We0KXNRQ7LyBCOjd1hIEjbiidQdV4DhCjpnDU7BN1zl4LlocRdom9baN8xvTJAf5WCJzeF-4eUklO13fwyBus_o8z6t6c7FHEK7IDo_PdAaUYmZ7sVbP-DmtoBg=w2400");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position:bottom;
-}
-.info-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
-  align-items: flex-start;
-  width:100vw;
-  height: 100vh;
-}
-.info-img{
-  order: 0;
-  flex: 1 0 auto;
-  align-self: stretch;
-}
-.tribute-info{
-  order: 1;
-  flex: 1 0 auto;
-  align-self: center;
-}
-.info-text-inner{
-  width: 50vw;
-  transform: translate(-10%, 0);
-}
-p.info-para{
-  margin-top: 10px;
-  width: 90%;
-}
-
-/* Console List **********************************************/
-.flex-console {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: normal;
-}
-.flex-console-items-1 {
-  display: flex;
-  align-self: center;
-  flex: 1 1 auto;
-  order: 0;
-}
-.flex-console-items-2 {
-  display: flex;
-  align-self: center;
-  flex: 4 1 auto;
-  order: 0;
-}
-.flex-inner-console-1{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
-  align-items: center;
-  padding-right: 50px;
-}
-.flex-inner-console-2 {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
-  align-items: start;
-}
-.icon-date-console {
-  padding-right: 50px;
-}
-ul {
-  display: table;
-  margin: 0 auto;
-  list-style-type: none;
-  padding-inline-start: 0;
-  padding: 100px 0 50px;
-  min-width: 300px;
-  max-width: 800px;
-}
-li {
-  padding: 30px 50px;
-	background: #fff;
-	border: solid #fff 0;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.4)  ;
-  border-radius: 5px;
-  margin-bottom: 30px;
-  max-width:900px;
-	-webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4)  ;
-	-moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4)  ;
-}
-.console-icon {
-  width:80px;
-}
-p.date {
-  font-size: 2.5em;
-  margin:0;
-}
-h3.flex-item-inner-1 {
-  margin: 15px 0;
-}
-.tribute-link {
-  color:#00C3E3;
-  text-decoration: underline;
-}
-
-/* Game Designer **********************************************/
-.game-designer {
-  padding: 10vh 0 25vh;
-  text-align: center;
-}
-.game-designer-img {
-  width: 270px;
-  border-radius: 200px;
-  /* text-align: center; */
-}
-.game-designer-title-name {
-  margin: 30px 0;
-}
-p.game-designer-para {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-h3.designer-title {
-  margin-top: 20px;
-  color: #27292B;
-}
-.color-balls {
-  position:relative;
-  max-width: 400px;
-  height: 100%;
-  margin: 0 auto;
-}
-
-/* Footer **********************************************/
-footer {
-  margin: 0 auto;
-  background: #27292b;
-  padding: 15vh 0;
-  text-align: center;
-}
-footer p {
-  font-size: 1.4em;
-  color: #fff;
-  text-align: center;
-}
-.credited{
-  margin: 20px 0 0;
-}
-.social-media {
-  padding: 20px 0;
-  width: 20%;
-  margin: 0 auto;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-content: stretch;
-  align-items: center;
-}
-.fa-github {
-    order: 0;
-    flex: 0 1 auto;
-    align-self: auto;
-    }
-
-.a-linkedin-in {
-    order: 0;
-    flex: 0 1 auto;
-    align-self: auto;
-    }
-
-.fa-envelope {
-    order: 0;
-    flex: 0 1 auto;
-    align-self: auto;
-    }
-i{
-  font-size:2em;
-}
-
-.footer-contents {
-  width: 60%;
-  margin: 0 auto;
-}
-footer a {
-  display: inline-block;
-  color: #fff;
-  margin-bottom: 5px;
-  line-height: 1.2em;
-}
-footer a:visited {
-  color: #fff;
-}
-footer h4 {
-  /* color: #fff;
-  font-size: 1.4em; */
-}
-/* Coloured balls **********************************************/
-
-.circle-container-top-left {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  top:-60px;
-  left: -45px;
-}
-.blue-circle-1{
-  position:absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
-  background: #00C3E3;
-  top: 0;
-  right: 0;
-}
-.red-circle-1{
-  position:absolute;
-  width: 30px;
-  height: 30px;
-  border-radius: 20px;
-  background: #FF4554;
-  bottom: 0;
-  left: 0;
-}
-.circle-container-bottom-right-1 {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  bottom: -20px;
-  right: 40px;
-}
-.circle-container-bottom-right-2 {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  bottom: 0px;
-  right: -20px;
-}
-.red-circle-2{
-  position:absolute;
-  width: 25px;
-  height: 25px;
-  border-radius: 30px;
-  background: #FF4554;
-  top: 0;
-  right: 0;
-}
-.blue-circle-2{
-  position:absolute;
-  width: 15px;
-  height: 15px;
-  border-radius: 20px;
-  background: #00C3E3;
-  bottom: 0;
-  left: 0;
-}
-
-@media only screen and (max-width: 900px) {
-  body {
-    font-size: 8px;
-    line-height: 8px;
-  }
-  h1 {
-    font-size: 4em;
-  }
-  h2 {
-    font-size: 2.5em;
-  }
-  h3 {
-    font-size: 2em;
-  }
-
-  /* Landing **********************************************/
-  .landing-container{
-    flex-direction: column-reverse;
-  }
-  .info-container {
+    font-family: 'Modak', cursive; /* Changed font-family to 'Modak' */
+    display: flex;
     flex-direction: column;
-  }
-  .hero-text-inner, .info-text-inner{
-    width: 100%;
-    transform: translate(0, 0);
-    margin: 30px auto 50px;
-  }
-  .hero-img, .info-img{
-    width: 100%;
-    height: 50vh;
-    background-position:center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(https://i.pinimg.com/originals/9e/78/85/9e7885991c634c1ac881e3ec0c0da1dd.png);
     background-size: cover;
-  }
-  p.info-para {
-    width: 100%;
-  }
-  .tribute-info, .hero-text {
-    width: 80%;
-  }
-
-  /* Console **********************************************/
-  .flex-console {
-    flex-direction: column;
-  }
-  .flex-inner-console-1{
-      padding-right: 0;
-      justify-content: center;
-  }
-  .flex-inner-console-2 {
-      text-align: center;
-      margin-top: 15px;
-  }
-  .flex-item-inner-1 {
-    width: 100%;
-  }
-  ul {
-    padding: 0;
-    width: 100%;
-  }
-  li {
-    padding: 30px 20px !important;
-    margin: 20px 20px;
-  }
-  li p {
-    text-align: center;
-  }
-  .console-icon {
-    width:80px;
-  }
-  .icon-date-console {
-    padding-right: 0px;
-  }
-
-  /* Game Designer **********************************************/
-  .game-designer {
-    margin: 0 20px;
-  }
-
-  /* Footer **********************************************/
-  .footer-contents {
-    width: 100vw;
-    /* margin: 0 20px; */
-  }
-  .social-media {
-    width: 50%;
-  }
-
-  /* Coloured balls **********************************************/
-  .circle-container-top-left {
-    width: 50px;
-    height: 50px;
-    top:-40px;
-    left: -30px;
-  }
-  .blue-circle-1{
-    width: 30px;
-    height: 30px;
-  }
-  .red-circle-1{
-    width: 20px;
-    height: 20px;
-  }
-  .circle-container-bottom-right-1 {
-    width: 30px;
-    height: 30px;
-    bottom: -20px;
-    right: -20px;
-  }
-  .circle-container-bottom-right-2 {
-    width: 30px;
-    height: 30px;
-    bottom: 0px;
-    right: -20px;
-  }
-  .red-circle-2{
-    width: 20px;
-    height: 20px;
-    top: 0;
-    right: 0;
-  }
-  .blue-circle-2{
-    width: 10px;
-    height: 10px;
-    bottom: 0;
-    left: 0;
-  }
-  .color-balls.mobile {
-    width: 70%;
-  }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;  /* Fixed background */
+    background-color: #f5f5f5;
 }
 
-</style>
+.container {
+    text-align: center;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+h1 {
+    color: #ff9900;
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for all h1 headings */
+    text-outline: 1px solid #000; /* Black outline for yellow text */
+}
+
+#kitty-coin {
+    width: 250px;
+    height: 250px;
+    background-image: url('https://i.pinimg.com/originals/fb/1c/cf/fb1ccfddfb18c0fbf2d3ce09809e5414.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: float 5s ease-in-out infinite;
+    position: relative;
+}
+
+/* Animation for floating effect */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Animation for zoom effect */
+@keyframes zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+#kitty-coin.zoomed {
+    animation: zoom 0.5s forwards; /* Apply the zoom animation */
+}
+
+#energy-bar-container {
+    width: 100%;
+    max-width: 250px;
+    height: 30px;
+    margin: 10px auto;
+    border-radius: 15px;
+    background-color: #ddd; /* Колір фону */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Глибока тінь для 3D ефекту */
+}
+
+#energy-bar-background {
+    height: 100%;
+    width: 100%;
+    background: #aaa; /* Колір фону, що показує зменшену енергію */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Внутрішня тінь для контурного ефекту */
+}
+
+#energy-bar {
+    height: 100%;
+    width: 0%; /* Заповнюється в залежності від рівня енергії */
+    background: linear-gradient(90deg, #ffcc00, #ff9900); /* Градієнтний фон для частково заповненої енергії */
+    background-size: 200% 200%; /* Розмір градієнту для анімації */
+    animation: gradientShift 3s ease infinite; /* Анімація градієнту */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    transition: width 0.5s;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Внутрішня тінь для контурного ефекту */
+}
+
+/* Анімація градієнту */
+@keyframes gradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+#energy-label {
+    position: relative;
+    margin-top: 5px;
+}
+
+#energy-text {
+    font-size: 1em;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for energy text */
+}
+
+p {
+    font-size: 1.2em;
+    color: #000;
+    padding: 10px;
+    margin: 10px 0;
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for paragraphs */
+    text-outline: 1px solid #fff; /* White outline for black text */
+}
+
+#coins-text {
+    color: #fff;
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for coins text */
+}
+
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.0); /* Semi-transparent background */
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-menu button {
+    background: linear-gradient(90deg, #ffcc00, #ff9900); /* Gradient background */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 50%; /* Fully rounded corners for circular buttons */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added transition for transform and shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    position: relative;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.bottom-menu button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    transform: scale(0.9);
+}
+
+.bottom-menu button i {
+    font-size: 1.5em; /* Adjust icon size */
+    margin-bottom: 0px; /* Space between icon and text */
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for icons */
+}
+
+.bottom-menu button span {
+    font-size: 0.8em;
+    text-align: center;
+    text-shadow: 2px 2px 5px #000000; /* Dark shadow for button text */
+    color: black;
+}
+
+.bottom-menu button:hover {
+    background: linear-gradient(90deg, #ff9900, #ffcc00);
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+.bottom-menu button:active {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-section {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-attachment: fixed; /* Fixed background for modal to avoid overlap */
+}
+
+.modal-content {
+    background-image: url('https://i.pinimg.com/originals/7f/38/be/7f38be522268230870f542c776726a1d.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: calc(100vh - 40px); /* Ensure content doesn't overflow */
+    border-radius: 15px;
+    overflow: auto; /* Make modal content scrollable */
+}
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+.close:hover,
+.close:focus {
+    color: #ba55d3;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-section .modal-content button,
+.modal-section .modal-content a {
+    background: linear-gradient(90deg, #ffcc00, #ff9900);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 0;
+    font-size: 1em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    white-space: nowrap;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    text-shadow: 2px 2px 5px #000000;
+    text-outline: 1px solid #000;
+}
+
+.modal-section .modal-content button::before,
+.modal-section .modal-content a::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border-radius: 25px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.modal-section .modal-content button:hover,
+.modal-section .modal-content a:hover {
+    background: linear-gradient(90deg, #ff9900, #ffcc00);
+    transform: scale(1.07);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-section .modal-content button:active,
+.modal-section .modal-content a:active {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Roulette Styles */
+#roulette-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#roulette-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#roulette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url('https://i.pinimg.com/originals/35/49/10/3549102105cc0dba52619c09038b3288.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    box-sizing: border-box;
+}
+
+#roulette-info {
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+#spin-roulette-btn {
+    background: linear-gradient(90deg, #ffcc00, #ff9900);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    text-shadow: 2px 2px 5px #000000;
+    text-outline: 1px solid #000;
+}
+
+#spin-roulette-btn::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border-radius: 25px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+#spin-roulette-btn:hover {
+    background: linear-gradient(90deg, #ff9900, #ffcc00);
+    transform: scale(1.07);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+#spin-roulette-btn:active {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    font-family: 'Modak', cursive; 
+    font-weight: normal;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+/* Define styles for text outline based on color */
+.white-text { text-outline: 1px solid #000; }
+.black-text { text-outline: 1px solid #fff; }
+
+/* Style all elements that are not within the referral system */
+*:not(.referral-form input, 
+     .referral-form label,
+     .referral-link input,
+     .referral-link p,
+     .referral-reward p,
+     #referral-message) { 
+    color: #fff;
+}
+
+/* Make these specific labels white */
+.referral-link p:nth-child(1), 
+.referral-link p:nth-child(3), 
+.referral-reward p { 
+    color: #fff;
+}
+
+/* Remove text shadow from specific elements */
+.referral-link p:nth-child(1),
+#referral-code-display,
+.referral-link p:nth-child(3) input,
+.referral-link p:nth-child(3),
+#share-link {
+    text-shadow: none;
+}
+
+.referral-form label,
+.referral-form input {
+    text-shadow: none;
+}
+
+#referral-message { color: white; }
+
+.referral-form input,
+.referral-code-input,
+.referral-link input {
+    background-color: #f5f5f5;
+    border: 2px solid #ffcc00;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 1em;
+    color: #333;
+    text-shadow: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.referral-form input::placeholder,
+.referral-code-input::placeholder,
+.referral-link input::placeholder {
+    color: #999;
+}
+
+.invites-tab button { margin: 0 20px; }
+
+.mine-tab img { 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    width: 50%; 
+    height: auto;
+}
+
+.mine-tab {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    padding: 20px; 
+}
+
+.image-container {
+    width: 100%; 
+    position: relative; 
+    margin-bottom: 10px; 
+    overflow: hidden; 
+}
+
+.mine-image {
+    width: 100%; 
+    height: auto; 
+    border-radius: 30px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.button-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.mine-button {
+    background: linear-gradient(90deg, #ffcc00, #ff9900); 
+    color: #fff; 
+    border: none;
+    border-radius: 25px; 
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+    margin: 0; 
+    font-size: 1em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0
+      </style>
