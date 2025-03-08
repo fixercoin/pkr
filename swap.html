@@ -21,41 +21,36 @@
      <br>
      
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Token Swap</title>
-</head>
-<body>
-    <button id="swapButton">Swap Tokens</button>
-    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js"></script>
-    <script>
-        document.getElementById('swapButton').addEventListener('click', async () => {
-            if (window.ethereum) {
-                try {
-                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                    const account = accounts:inlineRefs{references="&#91;&#123;&quot;type&quot;&#58;&quot;inline_reference&quot;,&quot;start_index&quot;&#58;745,&quot;end_index&quot;&#58;748,&quot;number&quot;&#58;0,&quot;url&quot;&#58;&quot;https&#58;//github.com/MetaMask/Add-Token&quot;,&quot;favicon&quot;&#58;&quot;https&#58;//imgs.search.brave.com/xxsA4YxzaR0cl-DBsH9-lpv2gsif3KMYgM87p26bs_o/rs&#58;fit&#58;32&#58;32&#58;1&#58;0/g&#58;ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYWQyNWM1NjA5/ZjZmZjNlYzI2MDNk/N2VkNmJhYjE2MzZl/MDY5ZTMxMDUzZmY1/NmU3NWIzNWVmMjk0/NTBjMjJjZi9naXRo/dWIuY29tLw&quot;,&quot;snippet&quot;&#58;&quot;It&#32;also&#32;increases&#32;the&#32;likelihood&#32;that&#32;each&#32;route&#32;of&#32;your&#32;application&#32;will&#32;be&#32;picked&#32;up&#32;by&#32;search&#32;engines.&#32;You&#32;can&#32;read&#32;more&#32;about&#32;zero-configuration&#32;pre-rendering&#32;(also&#32;called&#32;snapshotting)&#32;here.&#32;Similarly&#32;to&#32;the&#32;previous&#32;section,&#32;you&#32;can&#32;leave&#32;some&#32;placeholders&#32;in&#32;the&#32;HTML&#32;that&#32;inject&#32;global&#32;variables,&#32;for&#32;example&#58;&#32;&#32;&#32;&#32;&#32;window.SERVER_DATA&#32;=&#32;__SERVER_DATA__;&#32;…&quot;&#125;&#93;"};
-                    console.log('Account:', account);
+<button id="connectButton">Connect to MetaMask</button>
+<div id="accountAddress"></div>
+   <script>
 
-                    // Example of initiating a token swap
-                    const swapParams = {
-                        method: 'wallet_switchEthereumChain',
-                        params: [{ chainId: '0x3' }], // Example chain ID for Ropsten testnet
-                    };
-                    await ethereum.request(swapParams);
+    window.onload = (event) => {
+  isConnected();
+};
 
-                    // Additional steps would be required to specify the tokens and amounts to swap
-                    // This is a simplified example and would need to be expanded to include the actual swap logic
-                } catch (error) {
-                    console.error('Error:', error);
-                }
-            } else {
-                alert('MetaMask is not installed.');
-            }
-        });
-    </script>
-</body>
-</html>
+async function isConnected() {
+  const accounts = await ethereum.request({ method: 'eth_accounts' });
+  if (accounts.length) {
+    console.log(`You're connected to: ${accounts:inlineRefs{references="&#91;&#123;&quot;type&quot;&#58;&quot;inline_reference&quot;,&quot;start_index&quot;&#58;869,&quot;end_index&quot;&#58;872,&quot;number&quot;&#58;0,&quot;url&quot;&#58;&quot;https&#58;//support.metamask.io/third-party-platforms-and-dapps/connecting-to-a-dapp/&quot;,&quot;favicon&quot;&#58;&quot;https&#58;//imgs.search.brave.com/sXWg4u5TCilNkBwNI8qJUv3q8C0YNW0G48exb_vQRy8/rs&#58;fit&#58;32&#58;32&#58;1&#58;0/g&#58;ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMzQ0NTYzNTc5/ZTRkNmZiZmUyMGUx/ZWM1NTU1NDk3ZTc2/Njg3ZDdlNmRhN2Nl/MWJkZWEwMWQxMTRm/YjgzNDZkMy9zdXBw/b3J0Lm1ldGFtYXNr/LmlvLw&quot;,&quot;snippet&quot;&#58;&quot;Clicking&#32;'Edit'&#32;next&#32;to&#32;the&#32;first&#32;section&#32;provides&#32;an&#32;overview&#32;of&#32;the&#32;accounts&#32;the&#32;dapp&#32;would&#32;like&#32;to&#32;connect&#32;to.&#32;The&#32;dapp&#32;will&#32;be&#32;able&#32;to&#32;see&#32;the&#32;addresses&#32;of&#32;the&#32;selected&#32;accounts&#32;and&#32;can&#32;suggest&#32;transactions&#32;for&#32;those&#32;specific&#32;accounts&#32;(e.g.,&#32;a&#32;swap&#32;or&#32;trade&#32;if&#32;you&#32;have&#32;initiated&#32;one).&#32;You&#32;will&#32;still&#32;have&#32;to&#32;manually&#32;approve&#32;these&#32;transactions,&#32;of&#32;course.&#32;Tapping&#32;'Edit'&#32;next&#32;to&#32;the&#32;the&#32;second&#32;s…&quot;&#125;&#93;"}}`);
+    document.getElementById('accountAddress').innerText = `Connected to: ${accounts:inlineRefs{references="&#91;&#123;&quot;type&quot;&#58;&quot;inline_reference&quot;,&quot;start_index&quot;&#58;960,&quot;end_index&quot;&#58;963,&quot;number&quot;&#58;0,&quot;url&quot;&#58;&quot;https&#58;//support.metamask.io/third-party-platforms-and-dapps/connecting-to-a-dapp/&quot;,&quot;favicon&quot;&#58;&quot;https&#58;//imgs.search.brave.com/sXWg4u5TCilNkBwNI8qJUv3q8C0YNW0G48exb_vQRy8/rs&#58;fit&#58;32&#58;32&#58;1&#58;0/g&#58;ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMzQ0NTYzNTc5/ZTRkNmZiZmUyMGUx/ZWM1NTU1NDk3ZTc2/Njg3ZDdlNmRhN2Nl/MWJkZWEwMWQxMTRm/YjgzNDZkMy9zdXBw/b3J0Lm1ldGFtYXNr/LmlvLw&quot;,&quot;snippet&quot;&#58;&quot;Clicking&#32;'Edit'&#32;next&#32;to&#32;the&#32;first&#32;section&#32;provides&#32;an&#32;overview&#32;of&#32;the&#32;accounts&#32;the&#32;dapp&#32;would&#32;like&#32;to&#32;connect&#32;to.&#32;The&#32;dapp&#32;will&#32;be&#32;able&#32;to&#32;see&#32;the&#32;addresses&#32;of&#32;the&#32;selected&#32;accounts&#32;and&#32;can&#32;suggest&#32;transactions&#32;for&#32;those&#32;specific&#32;accounts&#32;(e.g.,&#32;a&#32;swap&#32;or&#32;trade&#32;if&#32;you&#32;have&#32;initiated&#32;one).&#32;You&#32;will&#32;still&#32;have&#32;to&#32;manually&#32;approve&#32;these&#32;transactions,&#32;of&#32;course.&#32;Tapping&#32;'Edit'&#32;next&#32;to&#32;the&#32;the&#32;second&#32;s…&quot;&#125;&#93;"}}`;
+  } else {
+    console.log("Metamask is not connected");
+    document.getElementById('accountAddress').innerText = 'Metamask is not connected';
+  }
+}
+
+// Connect button click handler
+document.getElementById('connectButton').addEventListener('click', async () => {
+  try {
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    console.log(`You're connected to: ${accounts:inlineRefs{references="&#91;&#123;&quot;type&quot;&#58;&quot;inline_reference&quot;,&quot;start_index&quot;&#58;1367,&quot;end_index&quot;&#58;1370,&quot;number&quot;&#58;0,&quot;url&quot;&#58;&quot;https&#58;//support.metamask.io/third-party-platforms-and-dapps/connecting-to-a-dapp/&quot;,&quot;favicon&quot;&#58;&quot;https&#58;//imgs.search.brave.com/sXWg4u5TCilNkBwNI8qJUv3q8C0YNW0G48exb_vQRy8/rs&#58;fit&#58;32&#58;32&#58;1&#58;0/g&#58;ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMzQ0NTYzNTc5/ZTRkNmZiZmUyMGUx/ZWM1NTU1NDk3ZTc2/Njg3ZDdlNmRhN2Nl/MWJkZWEwMWQxMTRm/YjgzNDZkMy9zdXBw/b3J0Lm1ldGFtYXNr/LmlvLw&quot;,&quot;snippet&quot;&#58;&quot;Clicking&#32;'Edit'&#32;next&#32;to&#32;the&#32;first&#32;section&#32;provides&#32;an&#32;overview&#32;of&#32;the&#32;accounts&#32;the&#32;dapp&#32;would&#32;like&#32;to&#32;connect&#32;to.&#32;The&#32;dapp&#32;will&#32;be&#32;able&#32;to&#32;see&#32;the&#32;addresses&#32;of&#32;the&#32;selected&#32;accounts&#32;and&#32;can&#32;suggest&#32;transactions&#32;for&#32;those&#32;specific&#32;accounts&#32;(e.g.,&#32;a&#32;swap&#32;or&#32;trade&#32;if&#32;you&#32;have&#32;initiated&#32;one).&#32;You&#32;will&#32;still&#32;have&#32;to&#32;manually&#32;approve&#32;these&#32;transactions,&#32;of&#32;course.&#32;Tapping&#32;'Edit'&#32;next&#32;to&#32;the&#32;the&#32;second&#32;s…&quot;&#125;&#93;"}}`);
+    document.getElementById('accountAddress').innerText = `Connected to: ${accounts:inlineRefs{references="&#91;&#123;&quot;type&quot;&#58;&quot;inline_reference&quot;,&quot;start_index&quot;&#58;1458,&quot;end_index&quot;&#58;1461,&quot;number&quot;&#58;0,&quot;url&quot;&#58;&quot;https&#58;//support.metamask.io/third-party-platforms-and-dapps/connecting-to-a-dapp/&quot;,&quot;favicon&quot;&#58;&quot;https&#58;//imgs.search.brave.com/sXWg4u5TCilNkBwNI8qJUv3q8C0YNW0G48exb_vQRy8/rs&#58;fit&#58;32&#58;32&#58;1&#58;0/g&#58;ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMzQ0NTYzNTc5/ZTRkNmZiZmUyMGUx/ZWM1NTU1NDk3ZTc2/Njg3ZDdlNmRhN2Nl/MWJkZWEwMWQxMTRm/YjgzNDZkMy9zdXBw/b3J0Lm1ldGFtYXNr/LmlvLw&quot;,&quot;snippet&quot;&#58;&quot;Clicking&#32;'Edit'&#32;next&#32;to&#32;the&#32;first&#32;section&#32;provides&#32;an&#32;overview&#32;of&#32;the&#32;accounts&#32;the&#32;dapp&#32;would&#32;like&#32;to&#32;connect&#32;to.&#32;The&#32;dapp&#32;will&#32;be&#32;able&#32;to&#32;see&#32;the&#32;addresses&#32;of&#32;the&#32;selected&#32;accounts&#32;and&#32;can&#32;suggest&#32;transactions&#32;for&#32;those&#32;specific&#32;accounts&#32;(e.g.,&#32;a&#32;swap&#32;or&#32;trade&#32;if&#32;you&#32;have&#32;initiated&#32;one).&#32;You&#32;will&#32;still&#32;have&#32;to&#32;manually&#32;approve&#32;these&#32;transactions,&#32;of&#32;course.&#32;Tapping&#32;'Edit'&#32;next&#32;to&#32;the&#32;the&#32;second&#32;s…&quot;&#125;&#93;"}}`;
+  } catch (error) {
+    console.error("Failed to connect to MetaMask:", error);
+  }
+});
+   </script>
 
      
      <br>
