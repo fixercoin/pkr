@@ -21,47 +21,41 @@
      <br>
      
 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="">
+    <title>Token Swap</title>
 </head>
 <body>
-    <div id="token-swap">
-        <h1></h1>
-        <div class="input-group">
-            <label for="fromToken"><label for="tokens"></label>
-<select name="tokens" id="tokens">
- <option value="SENDER">SENDER</option>
-  <option value="FIXERCOIN">FIXERCOIN</option>
-  <option value="DogSwap">DogSwap</option>
-  <option value="LOCKER">LOCKER</option>
-  <option value="1000x">1000x</option>
-</select></label>
-            <input type="text" id="tofrom" placeholder="Enter from token address">
-        </div>
-        <div class="input-group">
-            <label for="toToken"><label for="tokens"></label>
-<select name="tokens" id="tokens">
-<option value="RECEIVE">RECEIVE</option>
-  <option value="FIXERCOIN">FIXERCOIN</option>
-  <option value="DogSwap">DogSwap</option>
-  <option value="LOCKER">LOCKER</option>
-  <option value="1000x">1000x</option>
-</select></label>
-            <input type="text" id="toToken" placeholder="Enter to token address">
-        </div>
-        <div class="input-group">
-            <label for="amount"></label>
-            <input type="number" id="amount" placeholder="Enter amount">
-        </div>
-        <button id="swapButton">SWAP TOKEN</button>
-        <div id="result"></div>
-        <div id="loader" class="hidden">Loading...</div>
-    </div>
-    <script src="swap.js"></script>
+    <button id="swapButton">Swap Tokens</button>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js"></script>
+    <script>
+        document.getElementById('swapButton').addEventListener('click', async () => {
+            if (window.ethereum) {
+                try {
+                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                    const account = accounts:inlineRefs{references="&#91;&#123;&quot;type&quot;&#58;&quot;inline_reference&quot;,&quot;start_index&quot;&#58;745,&quot;end_index&quot;&#58;748,&quot;number&quot;&#58;0,&quot;url&quot;&#58;&quot;https&#58;//github.com/MetaMask/Add-Token&quot;,&quot;favicon&quot;&#58;&quot;https&#58;//imgs.search.brave.com/xxsA4YxzaR0cl-DBsH9-lpv2gsif3KMYgM87p26bs_o/rs&#58;fit&#58;32&#58;32&#58;1&#58;0/g&#58;ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYWQyNWM1NjA5/ZjZmZjNlYzI2MDNk/N2VkNmJhYjE2MzZl/MDY5ZTMxMDUzZmY1/NmU3NWIzNWVmMjk0/NTBjMjJjZi9naXRo/dWIuY29tLw&quot;,&quot;snippet&quot;&#58;&quot;It&#32;also&#32;increases&#32;the&#32;likelihood&#32;that&#32;each&#32;route&#32;of&#32;your&#32;application&#32;will&#32;be&#32;picked&#32;up&#32;by&#32;search&#32;engines.&#32;You&#32;can&#32;read&#32;more&#32;about&#32;zero-configuration&#32;pre-rendering&#32;(also&#32;called&#32;snapshotting)&#32;here.&#32;Similarly&#32;to&#32;the&#32;previous&#32;section,&#32;you&#32;can&#32;leave&#32;some&#32;placeholders&#32;in&#32;the&#32;HTML&#32;that&#32;inject&#32;global&#32;variables,&#32;for&#32;example&#58;&#32;&#32;&#32;&#32;&#32;window.SERVER_DATA&#32;=&#32;__SERVER_DATA__;&#32;…&quot;&#125;&#93;"};
+                    console.log('Account:', account);
+
+                    // Example of initiating a token swap
+                    const swapParams = {
+                        method: 'wallet_switchEthereumChain',
+                        params: [{ chainId: '0x3' }], // Example chain ID for Ropsten testnet
+                    };
+                    await ethereum.request(swapParams);
+
+                    // Additional steps would be required to specify the tokens and amounts to swap
+                    // This is a simplified example and would need to be expanded to include the actual swap logic
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            } else {
+                alert('MetaMask is not installed.');
+            }
+        });
+    </script>
 </body>
+</html>
 
      
      <br>
