@@ -21,63 +21,23 @@
     </center>
       <br>
       
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> FIXERCOIN PRESALE</title>
-    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.umd.min.js"></script>
-    <link rel="stylesheet" href="" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>FIXERCOIN PRESALE</h1>
-      <!-- Add the center-text class to this paragraph -->
-      <p class="center-text">JOIN PRESALE $ GET YOUR TOKENS EARLY AT $0.19</p>
 
-      <div id="timer" class="timer">
-        <div class="time-block">
-          <span id="weeks" class="time-number">00</span>
-          <span class="time-label">WEEKS</span>
-        </div>
-        <div class="time-block">
-          <span id="days" class="time-number">00</span>
-          <span class="time-label">DAYS</span>
-        </div>
-        <div class="time-block">
-          <span id="hours" class="time-number">00</span>
-          <span class="time-label">HOURS</span>
-        </div>
-        <div class="time-block">
-          <span id="minutes" class="time-number">00</span>
-          <span class="time-label">MINUTES</span>
-        </div>
-        <div class="time-block">
-          <span id="seconds" class="time-number">00</span>
-          <span class="time-label">SECONDS</span>
-        </div>
-      </div>
-
-      <div class="info" id="presale-info">
-        <p>TOTAL RAISED: <span id="total-raised">0</span> SOLANA</p>
-        <p>HARD CAP: <span id="hard-cap">171,000,000</span> USD</p>
-        <p>BUYERS: <span id="buyers">0</span></p>
-        <p>CLIFF: 1 MONTH | TGE: 15% | VESTING: 12 MONTHS</p>
-        <div class="progress-bar">
-          <div id="progress" class="progress">0%</div>
-        </div>
-      </div>
-
-      <div class="flex-row">
-        <button id="connect-wallet" class="button">CONNECT</button>
-        <button id="buy-tokens" class="button">BUY</button>
-        <button id="claim-tokens" class="button" disabled>CLAIM</button>
-        <button id="view-balance" class="button">CHECK</button>
-      </div>
-
-      <div id="balance-info" class="info hidden"></div>
-      <p id="error-message" class="info hidden"></p>
-    </div>
+                            <html>
+                              <head>
+                                <link rel="stylesheet" href="https://pay.radom.com/presale-widget/index.css">
+                                <style>
+                                  #radom-widget {
+                                    width: 500px;
+                                    height: 700px;
+                                  }
+                                </style>
+                              </head>
+                              <body>
+                                <div id="radom-widget"></div>
+                              </body>
+                              <script onload="LoadPresale('radom-widget', '3c869d29-ed47-46ea-97ea-2e857fd01c70')" src="https://pay.radom.com/presale-widget/index.js"  ></script>
+                            </html>
+                            
     <style>
       /* General Styling */
 body {
@@ -185,97 +145,7 @@ p.center-text {
 
       </style>
 
-    <script">
-  const presaleAddress = "H4qKn8FMFha8jJuj8xMryMqRhH3h7GjLuxw7TVixpump";
-const presaleABI = [
-  "function buyTokens() public payable",
-  "function totalRaised() public view returns (uint256)",
-  "function hardCap() public view returns (uint256)",
-  "function contributions(address) public view returns (uint256)",
-  "function purchasedTokens(address) public view returns (uint256)",
-  "function claimTokens() public"
-];
-
-let walletAddress = null;
-let timeLeft = 30 * 24 * 60 * 60; // Countdown time in seconds (30 days)
-
-// Countdown timer function
-function updateTimer() {
-  const timerElement = document.getElementById("timer");
-  const claimButton = document.getElementById("claim-tokens");
-
-  if (timeLeft <= 0) {
-    timerElement.textContent = "Presale has ended!";
-    clearInterval(timerInterval); // Stop the timer when it reaches 0
-    claimButton.disabled = false; // Enable the "Claim Tokens" button once the presale ends
-  } else {
-    const days = Math.floor(timeLeft / (24 * 60 * 60));
-    const hours = Math.floor((timeLeft % (24 * 60 * 60)) / (60 * 60));
-    const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
-    const seconds = timeLeft % 60;
-
-    timerElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    claimButton.disabled = true; // Keep "Claim Tokens" button disabled during the presale
-  }
-
-  timeLeft -= 1; // Decrement time left by 1 second
-}
-
-// Update the timer every second
-const timerInterval = setInterval(updateTimer, 1000);
-
-function updateProgressBar(raised, cap) {
-  const progressElement = document.getElementById("progress");
-  const percent = Math.min((raised / cap) * 100, 100).toFixed(2);
-  progressElement.style.width = `${percent}%`;
-  progressElement.textContent = `${percent}%`;
-}
-
-async function loadPresaleData() {
-  try {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const contract = new ethers.Contract(presaleAddress, presaleABI, provider);
-    const raised = await contract.totalRaised();
-    const cap = await contract.hardCap();
-    document.getElementById("total-raised").textContent = ethers.utils.formatEther(raised);
-    updateProgressBar(parseFloat(ethers.utils.formatEther(raised)), cap);
-  } catch (err) {
-    displayError("Failed to load presale data");
-  }
-}
-
-async function connectWallet() {
-  if (window.ethereum) {
-    // If MetaMask is detected
-    try {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const accounts = await provider.send("eth_requestAccounts", []);
-      walletAddress = accounts[0];
-      document.getElementById("balance-info").classList.add("hidden");
-      await loadPresaleData();
-    } catch (err) {
-      displayError("Wallet connection failed");
-    }
-  } else if (window.solana) {
-    // If Phantom Wallet is detected
-    try {
-      const response = await window.solana.connect();
-      walletAddress = response.publicKey.toString();
-      document.getElementById("balance-info").classList.add("hidden");
-      alert("Phantom wallet connected");
-      // Phantom does not use ethers.js, so you may need to implement different logic for interacting with the presale
-      // This part will need additional Solana-specific contract handling if using Phantom with Solana-based tokens
-    } catch (err) {
-      displayError("Failed to connect Phantom wallet");
-    }
-  } else {
-    displayError("No supported wallet detected. Please install MetaMask or Phantom.");
-  }
-}
-
-document.getElementById("connect-wallet").onclick = connectWallet;
-
-    </script>
+    
   </body>
 </html>
   <br>
