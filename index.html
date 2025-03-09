@@ -79,7 +79,97 @@
       <p id="error-message" class="info hidden"></p>
     </div>
 
-    <script"></script>
+    <script">
+  const presaleAddress = "YOUR_CONTRACT_ADDRESS";
+const presaleABI = [
+  "function buyTokens() public payable",
+  "function totalRaised() public view returns (uint256)",
+  "function hardCap() public view returns (uint256)",
+  "function contributions(address) public view returns (uint256)",
+  "function purchasedTokens(address) public view returns (uint256)",
+  "function claimTokens() public"
+];
+
+let walletAddress = null;
+let timeLeft = 30 * 24 * 60 * 60; // Countdown time in seconds (30 days)
+
+// Countdown timer function
+function updateTimer() {
+  const timerElement = document.getElementById("timer");
+  const claimButton = document.getElementById("claim-tokens");
+
+  if (timeLeft <= 0) {
+    timerElement.textContent = "Presale has ended!";
+    clearInterval(timerInterval); // Stop the timer when it reaches 0
+    claimButton.disabled = false; // Enable the "Claim Tokens" button once the presale ends
+  } else {
+    const days = Math.floor(timeLeft / (24 * 60 * 60));
+    const hours = Math.floor((timeLeft % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
+    const seconds = timeLeft % 60;
+
+    timerElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    claimButton.disabled = true; // Keep "Claim Tokens" button disabled during the presale
+  }
+
+  timeLeft -= 1; // Decrement time left by 1 second
+}
+
+// Update the timer every second
+const timerInterval = setInterval(updateTimer, 1000);
+
+function updateProgressBar(raised, cap) {
+  const progressElement = document.getElementById("progress");
+  const percent = Math.min((raised / cap) * 100, 100).toFixed(2);
+  progressElement.style.width = `${percent}%`;
+  progressElement.textContent = `${percent}%`;
+}
+
+async function loadPresaleData() {
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const contract = new ethers.Contract(presaleAddress, presaleABI, provider);
+    const raised = await contract.totalRaised();
+    const cap = await contract.hardCap();
+    document.getElementById("total-raised").textContent = ethers.utils.formatEther(raised);
+    updateProgressBar(parseFloat(ethers.utils.formatEther(raised)), cap);
+  } catch (err) {
+    displayError("Failed to load presale data");
+  }
+}
+
+async function connectWallet() {
+  if (window.ethereum) {
+    // If MetaMask is detected
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const accounts = await provider.send("eth_requestAccounts", []);
+      walletAddress = accounts[0];
+      document.getElementById("balance-info").classList.add("hidden");
+      await loadPresaleData();
+    } catch (err) {
+      displayError("Wallet connection failed");
+    }
+  } else if (window.solana) {
+    // If Phantom Wallet is detected
+    try {
+      const response = await window.solana.connect();
+      walletAddress = response.publicKey.toString();
+      document.getElementById("balance-info").classList.add("hidden");
+      alert("Phantom wallet connected");
+      // Phantom does not use ethers.js, so you may need to implement different logic for interacting with the presale
+      // This part will need additional Solana-specific contract handling if using Phantom with Solana-based tokens
+    } catch (err) {
+      displayError("Failed to connect Phantom wallet");
+    }
+  } else {
+    displayError("No supported wallet detected. Please install MetaMask or Phantom.");
+  }
+}
+
+document.getElementById("connect-wallet").onclick = connectWallet;
+
+    </script>
   </body>
 </html>
   <br>
